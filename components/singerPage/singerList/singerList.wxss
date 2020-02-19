@@ -1,0 +1,9 @@
+/* components/singerPage/singerList/singerList.wxss */
+
+.singerImg-size {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    margin: 40rpx;
+    border: 2rpx solid black;
+}

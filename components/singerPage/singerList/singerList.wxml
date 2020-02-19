@@ -1,0 +1,4 @@
+<view wx:for="{{singerList}}" class="flex a-center" wx:key="index">
+    <image class="singerImg-size" src="{{item.img1v1Url}}" />
+    <view>{{item.name}}</view>
+</view>

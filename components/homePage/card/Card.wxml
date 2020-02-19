@@ -1,0 +1,62 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view style="padding: 0 20rpx;margin-top:40rpx">
+    <view class="flex j-between" wx:if="{{title === 'personalized'}}">
+        <view class="recommend-playlist">推荐歌单</view>
+        <view class="playlist-square">歌单广场</view>
+    </view>
+    <!-- 选择新歌新碟 -->
+    <view class="flex j-between" wx:if="{{title === 'discAndSong'}}">
+        <view class="recommend-playlist flex a-center">
+            <view class="{{showIndex === '0' ? 'font-siz' : 'font-col'}}" data-num="0" bind:tap="chooseItem">
+                新碟
+            </view>
+            <view class="vertical-bar"></view>
+            <view class="{{showIndex === '1' ? 'font-siz' : 'font-col'}}" data-num="1" bind:tap="chooseItem">
+                新歌
+            </view>
+        </view>
+        <view class="playlist-square" wx:if="{{showIndex === '0'}}">更多新碟</view>
+        <view class="playlist-square" wx:if="{{showIndex === '1'}}">更多新歌</view>
+    </view>
+    <view class="flex j-between" wx:if="{{title === 'song'}}">
+        <view class="recommend-playlist">音乐新势力</view>
+        <view class="playlist-square">新音乐</view>
+    </view>
+    <view class="flex j-between" wx:if="{{title === 'dj'}}">
+        <view class="recommend-playlist">推荐电台</view>
+        <view class="playlist-square">电台广场</view>
+    </view>
+    <view class="flex j-between" wx:if="{{title === 'recommend'}}">
+        <view class="recommend-playlist">推荐节目</view>
+        <view class="playlist-square">更多节目</view>
+    </view>
+    <view class="flex f-wrap j-between" style="margin-top:20rpx">
+        <!-- {{(title === 'discAndSong' && showIndex === '0')}} -->
+        <view wx:if="{{ showIndex === '0'}}" class="playlist-box p-relative " wx:for="{{list}}" wx:key="index" data-item="{{item}}" bind:tap="clickItem">
+            <view class="playlist-img">
+                <image wx:if="{{item.picUrl}}" class="playlistImg-size" src="{{item.picUrl}}" />
+                <image wx:if="{{item.blurCoverUrl}}" class="playlistImg-size" src="{{item.blurCoverUrl}}" />
+            </view>
+            <view class="playlist-name">{{item.name}}</view>
+            <view class="flex p-absolute a-center {{title === 'personalized' ? 'view-counts' : 'view-count'}}" wx:if="{{title !== 'recommend'}}">
+                <image class="view-img" wx:if="{{title !== 'dj'}}" src="../../../assets/images/paly.png" />
+                <view class="view-counts" wx:if="{{title === 'personalized'}}">
+                    {{filter.numberVonversion(item.playCount)}}
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{ showIndex === '1'}}" class="playlist-box p-relative" wx:for="{{listTwo}}" wx:key="index" data-item="{{item}}" bind:tap="clickItem">
+            <view class="playlist-img">
+                <image wx:if="{{item.picUrl}}" class="playlistImg-size" src="{{item.picUrl}}" />
+                <image wx:if="{{item.blurCoverUrl}}" class="playlistImg-size" src="{{item.blurCoverUrl}}" />
+            </view>
+            <view class="playlist-name">{{item.name}}</view>
+            <view class="flex p-absolute a-center {{title==='personalized' ? 'view-counts' : 'view-count'}}" wx:if="{{title !== 'recommend'}}">
+                <image class="view-img" wx:if="{{title !== 'dj'}}" src="../../../assets/images/paly.png" />
+                <view class="view-counts" wx:if="{{title === 'personalized'}}">
+                    {{filter.numberVonversion(item.playCount)}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

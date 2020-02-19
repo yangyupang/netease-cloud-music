@@ -1,1 +1,26 @@
 /* pages/singer/singer.wxss */
+
+.type-box {
+    padding: 30rpx 10rpx;
+}
+
+.horizontal-line {
+    height: 2px;
+    width: 58%;
+    bottom: 10rpx;
+    left: 18%;
+    background-color: #f46f46;
+}
+
+.font-col {
+    color: #e4dfde;
+}
+
+.letter-box {
+    padding: 16rpx 8rpx;
+}
+
+.font-stl {
+    background-color: red;
+    color: white;
+}

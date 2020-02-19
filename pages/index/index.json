@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+    "usingComponents": {
+        "slideshow": "../../components/homePage/slideShow/slideShow",
+        "Card": "../../components/homePage/card/Card",
+        "van-search": "../../lib/vant/search/index"
+    }
 }

@@ -1,0 +1,25 @@
+var filter = {
+    //保留两位小数
+    numberToFixed: function(value) {
+        return value.toFixed(2)
+    },
+    //换算单位
+    numberVonversion: function(value) {
+        var a = (value / 1000).toFixed(2)
+        if (a >= 100000) {
+            var b = (value / 100000000).toFixed(2)
+            return b + '亿'
+        } else if (a >= 10) {
+            var b = (value / 10000).toFixed(2)
+            return b + '万'
+        } else if (a >= 1 && a < 10) {
+            return a + '千'
+        } else {
+            return value
+        }
+    }
+}
+module.exports = {
+    numberToFixed: filter.numberToFixed,
+    numberVonversion: filter.numberVonversion
+}

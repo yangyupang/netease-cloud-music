@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+    "usingComponents": {
+        "singerList": "../../components/singerPage/singerList/singerList"
+    }
 }

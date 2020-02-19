@@ -1,0 +1,5 @@
+<swiper style="border-radius: 25rpx !important;" indicator-dots="{{true}}" indicator-color="rgba(0, 0, 0, .4)" indicator-active-color="#FA4223" circular="{{true}}" autoplay="{{true}}" interval="{{3000}}">
+    <swiper-item wx:for="{{bannerList}}" wx:key="index" class="img-corners">
+        <image class="swiper-img" src="{{item.imageUrl}}" mode="widthFix"></image>
+    </swiper-item>
+</swiper>

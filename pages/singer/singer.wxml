@@ -1,2 +1,43 @@
-<!--pages/singer/singer.wxml-->
-<text>pages/singer/singer.wxml</text>
+<scroll-view scroll-x="{{true}}" class="w-space a-center t-center">
+    <view wx:for="{{typeList}}" wx:key="index" data-item="{{item}}" data-index="{{index}}" bind:tap="clickItem" class="inline-b p-relative a-center t-center">
+        <view class="type-box {{chooseType === index ? '' : 'font-col'}}">{{item.name}}</view>
+        <view class="p-absolute horizontal-line" wx:if="{{chooseType === index}}"></view>
+    </view>
+</scroll-view>
+<scroll-view scroll-x="{{true}}" class="w-space a-center " wx:if="{{showLetter !== 0}}">
+    <view class="inline-b letter-box {{chooseLetter===index ? 'font-stl' :''}}" wx:for="{{initial}}" wx:key="index" data-item="{{item}}" data-index="{{index}}" bind:tap="clickLetter">
+        {{item}}
+    </view>
+</scroll-view>
+<!-- 入驻歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 0}}"  bind:newLimit='newLimit'></singerList>
+<!-- 华语男歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 1}}" bind:newLimit='newLimit'></singerList>
+<!-- 华语女歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 2}}" bind:newLimit='newLimit'></singerList>
+<!-- 华语组合/乐队 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 3}}" bind:newLimit='newLimit'></singerList>
+<!-- 欧美男歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 4}}" bind:newLimit='newLimit'></singerList>
+<!-- 欧美女歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 5}}" bind:newLimit='newLimit'></singerList>
+<!-- 欧美组合/乐队 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 6}}" bind:newLimit='newLimit'></singerList>
+<!-- 日本男歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 7}}" bind:newLimit='newLimit'></singerList>
+<!-- 日本女歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 8}}" bind:newLimit='newLimit'></singerList>
+<!-- 日本组合/乐队 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 9}}" bind:newLimit='newLimit'></singerList>
+<!-- 韩国男歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 10}}" bind:newLimit='newLimit'></singerList>
+<!-- 韩国女歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 11}}" bind:newLimit='newLimit'></singerList>
+<!-- 韩国组合/乐队 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 12}}" bind:newLimit='newLimit'></singerList>
+<!-- 其他男歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 13}}" bind:newLimit='newLimit'></singerList>
+<!-- 其他女歌手 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 14}}" bind:newLimit='newLimit'></singerList>
+<!-- 其他组合/乐队 -->
+<singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 15}}" bind:newLimit='newLimit'></singerList>

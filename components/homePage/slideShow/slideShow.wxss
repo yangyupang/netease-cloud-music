@@ -1,0 +1,9 @@
+.img-corners {
+    border-radius: 25rpx !important;
+}
+
+.swiper-img {
+    height: 352rpx !important;
+    width: 100% !important;
+    border-radius: 25rpx !important;
+}

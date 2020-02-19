@@ -1,4 +1,28 @@
-<!--index.wxml-->
-<view class="container">
-index
+<!-- index.wxml -->
+<view>
+    <view class="search-container flex a-center t-center p-fixed">
+        <view class="music-hall">音乐馆</view>
+        <view class="music-search">
+            <van-search value="{{searchValue}}" placeholder="请输入搜索关键词"></van-search>
+        </view>
+        <view class="music-img">
+            <image class="music-size" src="../../assets/images/music.png" />
+        </view>
+    </view>
+    <view class="banner-container">
+        <slideshow style="border-radius: 25rpx;" bannerList="{{bannerList}}"></slideshow>
+    </view>
+    <view class="flex same-container a-center t-center">
+        <view class="f-1" wx:for="{{sameList}}" wx:key="index">
+            <view class="same-img">
+                <image class="same-size" src="{{item.url}}" />
+            </view>
+            <view class="same-title">{{item.title}}</view>
+        </view>
+    </view>
+    <Card list="{{personalized}}" title="personalized"></Card>
+    <Card list="{{newDisc}}" listTwo="{{newSong}}" title="discAndSong"></Card>
+    <Card list="{{newSong}}" title="song"></Card>
+    <Card list="{{djprogram}}" title="dj"></Card>
+    <Card list="{{recommend}}" title="recommend"></Card>
 </view>

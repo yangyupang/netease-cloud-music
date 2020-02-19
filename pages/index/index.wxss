@@ -1,0 +1,47 @@
+.banner-container {
+    /* margin: 20rpx 0; */
+    margin: 136rpx 0 30rpx 0;
+    padding: 0 20rpx;
+    border-radius: 25rpx;
+}
+
+.search-container {
+    padding: 0 20rpx;
+    top: 0;
+    z-index: 2;
+    background-color: white;
+}
+
+.music-hall {
+    font-weight: 600;
+}
+
+.music-img {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.music-size {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.same-container {
+    padding: 0 20rpx;
+    margin: 10rpx 0 20rpx 0;
+}
+
+.same-img {
+    /* width: 80rpx;
+    height: 80rpx; */
+}
+
+.same-size {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.same-title {
+    font-size: 36rpx;
+    font-weight: 600;
+}
