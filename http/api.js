@@ -156,7 +156,7 @@ export default ({
     djprogramDetail(id) {
         return fly.get(`/dj/program/detail?id=${id}`)
     },
-    //获取音乐 url
+    //获取音乐 url 电台也是
     musicUrl(id) {
         return fly.get(`/song/url?id=${id}`)
     },
@@ -217,7 +217,7 @@ export default ({
     },
     // 邮箱登录(email: 163 网易邮箱，password: 密码)
     loginbyEmail(email, password) {
-        return fly.get(`/login?email${email}&password=${password}`)
+        return fly.get(`/login?email=${email}&password=${password}`)
     },
     // 注册页
     // 发送验证码(phone: 手机号码)
@@ -236,4 +236,25 @@ export default ({
     checkTel(phone) {
         return fly.get(`/cellphone/existence/check?phone=${phone}`)
     },
+    //获取用户信息
+    userDet(id) {
+        return fly.get(`/user/detail?uid=${id}`)
+    },
+    //获取用户信息 , 歌单，收藏，mv, dj 数量
+    userSubcount() {
+        return fly.get(`/user/subcount`)
+    },
+    //更新用户信息
+    upUserDet(gender, signature, city, nickname, birthday, province) {
+        return fly.get(`/user/update?gender=${gender}&signature=${signature}&city=${city}&nickname=${nickname}&birthday=${birthday}&province=${province}`)
+    },
+    //退出登录
+    logout() {
+        return fly.get('/logout')
+    },
+    //登录状态
+    loginStatus() {
+        return fly.get('/login/status')
+    }
+
 })

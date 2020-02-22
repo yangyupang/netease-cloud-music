@@ -1,0 +1,21 @@
+/* pages/editor/editor.wxss */
+
+.amend-btn {
+    position: fixed;
+    bottom: 220rpx;
+    left: 162rpx;
+}
+
+.van-field__input--textarea {
+    margin-top: 10rpx !important;
+}
+
+.compile-container {
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+.van-picker-column__item--selected {
+    font-weight: 600 !important;
+}

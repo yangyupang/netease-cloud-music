@@ -2,7 +2,10 @@
     "pages": [
         "pages/index/index",
         "pages/singer/singer",
-        "pages/my/my"
+        "pages/my/my",
+        "pages/login/login",
+        "pages/register/register",
+        "pages/editor/editor"
     ],
     "window": {
         "backgroundTextStyle": "light",

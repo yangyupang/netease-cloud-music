@@ -17,9 +17,19 @@ var filter = {
         } else {
             return value
         }
-    }
+    },
+    // //时间格式 转为时间戳
+    // forTimeStamp: function(times) {
+    //     // var times = '2019-05-20 00:00:00';
+    //     var repTime = times.replace(/-/g, '/'); //用正则主要是把“2019-05-20 00:00:00”转换成“2019/05/0 00:00:00”兼容ios
+    //     // console.log("返回时间：" + repTime);
+    //     var timeTamp = Date.parse(repTime);
+    //     // console.log("返回时间戳：" + timeTamp)
+    //     return timeTamp
+    // }
 }
 module.exports = {
     numberToFixed: filter.numberToFixed,
-    numberVonversion: filter.numberVonversion
+    numberVonversion: filter.numberVonversion,
+    // forTimeStamp: filter.forTimeStamp
 }

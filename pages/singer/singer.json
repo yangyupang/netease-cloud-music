@@ -1,5 +1,6 @@
 {
     "usingComponents": {
         "singerList": "../../components/singerPage/singerList/singerList"
-    }
+    },
+    "navigationBarTitleText": "歌手"
 }

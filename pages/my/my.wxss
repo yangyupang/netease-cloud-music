@@ -1,1 +1,55 @@
 /* pages/my/my.wxss */
+
+.container {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.container-my {
+    padding: 40rpx;
+}
+
+.my-top,
+.my-middle {
+    margin-bottom: 80rpx;
+}
+
+.user-img {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 50%;
+}
+
+.user-nickname {
+    font-size: 40rpx;
+    font-weight: 600;
+    margin-bottom: 20rpx;
+}
+
+.user-level {
+    font-size: 32rpx;
+    padding: 6rpx 16rpx;
+    background-color: #E0E0DF;
+    border-radius: 26rpx;
+}
+
+.Sign {
+    font-size: 32rpx;
+    padding: 6rpx 16rpx;
+    background-color: #E0E0DF;
+    border-radius: 26rpx;
+    color: #fff;
+}
+
+.editor-img {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.font-col {
+    color: rgb(223, 219, 219);
+    font-size: 36rpx;
+    margin-top: 10rpx;
+}

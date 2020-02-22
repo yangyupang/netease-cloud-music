@@ -1,2 +1,37 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="container p-fixed a-center t-center" wx:if="{{uid === '' }}">
+    <view style="margin-top: 400rpx;margin-bottom: 40rpx;">你还没有登录哦！</view>
+    <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" bind:tap="goToLogin">
+        立即登录
+    </van-button>
+</view>
+<view class="container-my" wx:else>
+    <view class="flex j-between a-center t-center my-top">
+        <image class="user-img" src="{{profile.avatarUrl}}" />
+        <view style="width: 300rpx;" class="t-center">
+            <view class="user-nickname">{{profile.nickname}}</view>
+            <text class="user-level">Lv:{{level}}</text>
+        </view>
+        <view class="Sign">签到</view>
+    </view>
+    <view class="flex j-around a-center t-center my-middle">
+        <view>
+            <view>{{profile.eventCount}}</view>
+            <view class="font-col">动态</view>
+        </view>
+        <view>
+            <view>{{profile.follows}}</view>
+            <view class="font-col">关注</view>
+        </view>
+        <view>
+            <view>{{profile.followeds}}</view>
+            <view class="font-col">粉丝</view>
+        </view>
+        <view bind:tap="changeEditor">
+            <image class="editor-img" src="../../assets/images/editor.png"/>
+            <view class="font-col">资料编辑</view>
+        </view>
+    </view>
+    <view class="flex j-around a-center t-center">
+        <van-button color="#F77626" bind:tap="outLogin">退出登录</van-button>
+    </view>
+</view>

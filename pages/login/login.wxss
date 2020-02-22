@@ -1,0 +1,9 @@
+/* pages/login/login.wxss */
+
+.van-icon__image {
+    margin-bottom: 10rpx !important;
+}
+
+button {
+    width: 300rpx !important;
+}

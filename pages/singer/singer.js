@@ -23,6 +23,9 @@ Page({
      */
     //选择歌手
     clickItem(e) {
+        wx.showLoading({
+            title: '加载中...',
+        });
         // console.log(e.currentTarget.dataset.index);
         // console.log(e.currentTarget.dataset.item.id);
         let index = e.currentTarget.dataset.index
@@ -38,6 +41,9 @@ Page({
         this.getArtist()
     },
     clickLetter(e) {
+        wx.showLoading({
+            title: '加载中...',
+        });
         let index = e.currentTarget.dataset.index
         let item = e.currentTarget.dataset.item
         this.setData({

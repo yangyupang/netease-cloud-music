@@ -60,6 +60,21 @@
 					"id": -1,
 					"name": "pages/singer/singer",
 					"pathName": "pages/singer/singer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "pages/my/my",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editor/editor",
+					"pathName": "pages/editor/editor",
+					"query": "uid=3227354994",
 					"scene": null
 				}
 			]

@@ -1,0 +1,17 @@
+<view class="">
+    <van-cell-group>
+        <van-field value="{{nickname}}" bind:change="changeNickName" input-align="right" label="昵称" placeholder="请输入昵称" />
+        <van-field value="{{gender}}" bind:change="changeGender" right-icon="arrow" readonly input-align="right" label="性别" bind:click-icon="genderArrow" />
+        <van-field value="{{birthday}}" bind:change="changeBirthday" right-icon="arrow" readonly input-align="right" label="生日" bind:click-icon="birthdayArrow" />
+        <van-field value="{{address}}" bind:change="changeAddress" right-icon="arrow" readonly input-align="right" label="城市" bind:click-icon="addressArrow" />
+        <van-field value="{{signature}}" bind:change="changeSignature" clearable type="textarea" autosize label="个性签名" border="{{ false }}" />
+    </van-cell-group>
+</view>
+<view class="amend-btn">
+    <van-button color="#F77626" bind:tap="sure">确认修改</van-button>
+</view>
+<view class="compile-container p-fixed">
+    <van-area area-list="{{ areaList }}" wx:if="{{showArea}}" columns-num="{{ 2 }}" bind:confirm="areaConfirm" bind:cancel="areaCancel" />
+    <van-datetime-picker wx:if="{{showDate}}" visible-item-count="{{3}}" type="date" value="{{ currentDate }}" bind:input="onInput" bind:confirm="dateConfirm" bind:cancel="dateCancel" max-date="{{ maxDate }}" min-date="{{ minDate }}" formatter="{{ formatter }}" />
+    <van-picker show-toolbar columns="{{ genderList }}" wx:if="{{showGender}}" bind:cancel="genderCancel" bind:confirm="genderConfirm" />
+</view>
