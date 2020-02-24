@@ -1,0 +1,2 @@
+<detailsHead singerName="{{singerName}}" picUrl="{{picUrl}}"></detailsHead>
+<detailsBody style="position: relative;top: -40rpx;z-index:1;" id='singerDetail' bind:newLimit='newLimit' fromTop="{{fromTop}}" singerName="{{singerName}}" briefDesc="{{briefDesc}}" albumSize="{{albumSize}}" mvSize="{{mvSize}}" hotSongs="{{hotSongs}}" someHotSongs="{{someHotSongs}}" topFiveSongs="{{topFiveSongs}}" hotAlbums="{{hotAlbums}}" mvs="{{mvs}}"></detailsBody>

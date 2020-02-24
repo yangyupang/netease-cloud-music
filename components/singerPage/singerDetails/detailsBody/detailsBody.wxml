@@ -1,0 +1,153 @@
+<wxs module="filter" src="../../../../assets/filter.wxs"></wxs>
+<view class="flex j-between box {{ fromTop >=189?'fix':''}}">
+    <view class="public-sty p-relative {{activeIndex===0?'private-sty':''}}" bind:tap="chooseItem" data-index="{{ 0 }}">
+        <view>主页</view>
+        <view class="p-absolute {{activeIndex===0?'line-box':''}}"></view>
+    </view>
+    <view class="public-sty p-relative {{activeIndex===1?'private-sty':''}}" bind:tap="chooseItem" data-index="{{ 1 }}">
+        <view>歌曲</view>
+        <view class="p-absolute {{activeIndex===1?'line-box':''}}"></view>
+    </view>
+    <view class="public-sty p-relative" bind:tap="chooseItem" data-index="{{ 2 }}">
+        <view class="flex a-center">
+            <view class="{{activeIndex===2?'private-sty':''}}">专辑</view>
+            <text class="num-sty">{{albumSize}}</text>
+        </view>
+        <view class="p-absolute {{activeIndex===2?'line-box':''}}"></view>
+    </view>
+    <view class="public-sty p-relative" bind:tap="chooseItem" data-index="{{ 3 }}">
+        <view class="flex a-center">
+            <view class="{{activeIndex===3?'private-sty':''}}">MV</view>
+            <text class="num-sty">{{mvSize}}</text>
+        </view>
+        <view class="p-absolute {{activeIndex===3?'line-box':''}}"></view>
+    </view>
+</view>
+<view class="background-color: #fff;">
+    <view wx:if="{{activeIndex===0}}" style="padding:20rpx 40rpx">
+        <view class="flex j-between a-center" style="margin-bottom: 20rpx;">
+            <view class="flex ">
+                <van-icon name="play-circle-o" style="font-size: 58rpx;" />
+                <view style="font-weight: 600;margin-left: 10rpx;">近期热门</view>
+            </view>
+            <view class="more-song" bind:tap="moreSong">更多热歌</view>
+        </view>
+        <!-- 近期热门的歌 -->
+        <view class="flex j-between a-center" style="margin-bottom: 30rpx;" wx:for="{{topFiveSongs}}" wx:key="index" data-item="{{item}}" bind:tap="chooseSong">
+            <image class="song-img" src="{{item.al.picUrl}}" />
+            <view class="" style="width: 70%;">
+                <view class="song-name o-h">{{item.name}}</view>
+                <view class="song-describe o-h">{{item.ar[0].name}}-{{item.al.name}}</view>
+            </view>
+            <view class="flex">
+                <!-- <image class="" style="width: 50rpx;height: 50rpx;" src="../../../../assets/images/square-paly.png" /> -->
+                <image class="" style="width: 50rpx;height: 50rpx;" src="../../../../assets/images/point.png" />
+            </view>
+        </view>
+        <!-- 歌手简介 -->
+        <view style="padding:20rpx;font-weight: 600;">歌手简介</view>
+        <view class="font-siz">
+            <view class="">昵称：{{singerName}}</view>
+            <view class="h-font">简介：{{briefDesc}}</view>
+        </view>
+    </view>
+    <view wx:if="{{activeIndex===1}}" style="padding:20rpx 40rpx">
+        <view class="flex j-between a-center" style="margin-bottom: 20rpx;">
+            <view class="flex">
+                <van-icon name="sign" style="font-size: 58rpx;" />
+                <view style="font-weight: 600;margin-left: 10rpx;">收藏热门50</view>
+            </view>
+            <view class="flex a-center" bind:tap="management">
+                <image style="width:40rpx;height:40rpx" src="../../../../assets/images/management.png" />
+                <view style="font-size:32rpx">管理</view>
+            </view>
+        </view>
+        <view wx:if="{{!showAll}}" class="flex j-between a-center" style="margin-bottom: 30rpx;" wx:for="{{someHotSongs}}" wx:key="index" data-item="{{item}}" bind:tap="chooseSong">
+            <view style="color:rgb(209, 208, 208);font-weight:600">{{index+1}}</view>
+            <view class="" style="width: 64%;">
+                <view class="song-name o-h">{{item.name}}</view>
+                <view class="song-describe o-h">{{item.ar[0].name}}-{{item.al.name}}</view>
+            </view>
+            <view class="flex">
+                <image class="" style="width: 50rpx;height: 50rpx;" src="../../../../assets/images/square-paly.png" />
+                <image class="" style="width: 50rpx;height: 50rpx;" src="../../../../assets/images/point.png" />
+            </view>
+        </view>
+        <view wx:if="{{showAll}}" class="flex j-between a-center" style="margin-bottom: 30rpx;" wx:for="{{hotSongs}}" wx:key="index" data-item="{{item}}" bind:tap="chooseSong">
+            <view style="color:rgb(209, 208, 208);font-weight:600">{{index+1}}</view>
+            <view class="" style="width: 64%;">
+                <view class="song-name o-h">{{item.name}}</view>
+                <view class="song-describe o-h">{{item.ar[0].name}}-{{item.al.name}}</view>
+            </view>
+            <view class="flex">
+                <image class="" style="width: 50rpx;height: 50rpx;" src="../../../../assets/images/square-paly.png" />
+                <image class="" style="width: 50rpx;height: 50rpx;" src="../../../../assets/images/point.png" />
+            </view>
+        </view>
+        <view wx:if="{{!showAll}}" bind:tap="showAll" class="show-all a-center  flex j-center">
+            全部展示
+            <van-icon name="arrow" />
+        </view>
+        <view wx:if="{{showAll}}" class="flex a-center all-song j-center">
+            全部歌曲
+            <van-icon name="arrow" />
+        </view>
+    </view>
+    <view wx:if="{{activeIndex===2}}" style="padding:20rpx 40rpx">
+        <view class="flex j-between a-center" style="margin-bottom: 20rpx;">
+            <view>
+                <view style="font-weight: 600;font-size:32rpx">按发行时间排序</view>
+            </view>
+            <view class="flex a-center" bind:tap="sorting">
+                <image style="width:40rpx;height:40rpx;margin-top: 6rpx;" src="../../../../assets/images/sorting.png" />
+                <view style="font-size:32rpx">排序</view>
+            </view>
+        </view>
+        <view wx:for="{{hotAlbums}}" wx:key="index" class="flex j-between a-center" style="margin-bottom: 30rpx;" data-item="{{item}}" bind:tap="chooseAlbums">
+            <view class="p-relative">
+                <image class="albums-img" src="{{item.picUrl}}" />
+                <view class="p-absolute dic-line"></view>
+                <view class="p-absolute dic-circle"></view>
+                <view class="p-absolute dic-triangle"></view>
+            </view>
+            <view class="" style="width: 73%;">
+                <view class="albums-name o-h" wx:if="{{item.alias.length === 0}}">
+                    {{item.name}}
+                </view>
+                <view class="albums-name o-h flex" wx:else>
+                    {{item.name}}
+                    <text style="color: rgb(209, 208, 208);">({{item.alias}})</text>
+                </view>
+                <view class="albums-describe o-h">
+                    {{filter.formatTime(item.publishTime,'Y.M.D')}} 歌曲 {{item.size}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{activeIndex===3}}" style="padding:20rpx 40rpx">
+        <view class="flex j-between a-center" style="margin-bottom: 20rpx;">
+            <view style="font-weight: 600;font-size:32rpx" class="flex">
+                <view>MV</view>
+                <view style="font-weight: normal;color: rgb(209, 208, 208);margin-left: 16rpx;">
+                    (共{{mvSize}}个)
+                </view>
+            </view>
+        </view>
+        <view wx:for="{{mvs}}" wx:key="index" class="flex j-between a-center" style="margin-bottom: 30rpx;" data-item="{{item}}" bind:tap="chooseMv">
+            <view class="p-relative">
+                <image class="mv-img" src="{{item.imgurl}}" />
+                <view class="p-absolute logo-box flex a-center">
+                    <image class="play-img" src="../../../../assets/images/paly.png"></image>
+                    <view class="play-count">{{filter.numberVonversion(item.playCount)}}</view>
+                </view>
+            </view>
+            <view class="" style="width:54%;">
+                <view class="mv-name flex a-center">
+                    <view class="mv-label">MV</view>
+                    <view class="o-h">{{item.name}}</view>
+                </view>
+                <view class="mv-describe o-h">{{item.publishTime}}</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+<view class="flex j-between action-btn a-center">
+    <view class="flex a-center">
+        <image class="back-img" src="/assets/images/back.png" bind:tap="back" />
+        <view class="list-name">{{title}}</view>
+    </view>
+    <image class="point-img" src="/assets/images/point2.png" />
+</view>

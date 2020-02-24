@@ -39,7 +39,27 @@ Component({
             })
         },
         clickItem(e) {
-            console.log(e.currentTarget.dataset.item);
+            if (this.properties.title === 'personalized') {
+                wx.navigateTo({
+                    url: `/pages/recommendPlaylist/recommendPlaylist?id=${e.currentTarget.dataset.item.id}`,
+                });
+                // console.log(e.currentTarget.dataset.item.id);                // console.log("我被点了");
+            } else if (this.properties.title === 'discAndSong') {
+                if (this.data.showIndex === "1") {
+                    console.log("新歌");
+                    console.log(e.currentTarget.dataset.item);
+                } else {
+                    console.log("新碟");
+                    console.log(e.currentTarget.dataset.item);
+                }
+            } else if (this.properties.title === 'song') {
+                console.log("音乐新势力");
+            } else if (this.properties.title === 'dj') {
+                console.log("电台");
+            } else if (this.properties.title === 'recommend') {
+                console.log("节目");
+            }
+            // console.log(e.currentTarget.dataset.item);
             // let item =
         }
     }

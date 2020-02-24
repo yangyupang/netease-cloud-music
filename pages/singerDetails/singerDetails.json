@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "detailsBody": "../../components/singerPage/singerDetails/detailsBody/detailsBody",
+        "detailsHead": "../../components/singerPage/singerDetails/detailsHead/detailsHead"
+    }
+}

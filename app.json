@@ -2,10 +2,12 @@
     "pages": [
         "pages/index/index",
         "pages/singer/singer",
+        "pages/singerDetails/singerDetails",
         "pages/my/my",
         "pages/login/login",
         "pages/register/register",
-        "pages/editor/editor"
+        "pages/editor/editor",
+        "pages/recommendPlaylist/recommendPlaylist"
     ],
     "window": {
         "backgroundTextStyle": "light",

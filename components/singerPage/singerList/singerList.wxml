@@ -1,4 +1,4 @@
-<view wx:for="{{singerList}}" class="flex a-center" wx:key="index">
+<view wx:for="{{singerList}}" class="flex a-center" wx:key="index" data-item="{{item}}" bind:tap="chooseItem">
     <image class="singerImg-size" src="{{item.img1v1Url}}" />
     <view>{{item.name}}</view>
 </view>

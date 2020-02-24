@@ -156,6 +156,12 @@ export default ({
     djprogramDetail(id) {
         return fly.get(`/dj/program/detail?id=${id}`)
     },
+    // 电台节目详情的精彩评论的接口
+    // 返回的hotComments字段为热门评论，如果hotComments数组为空则取comments作为热门评论展示
+    // PS:推荐节目中的id为对象最外层id，不要用mainSong里面提供的id(404警告)
+    djproComment(id) {
+        return fly.get(`/comment/dj?id=${id}`)
+    },
     //获取音乐 url 电台也是
     musicUrl(id) {
         return fly.get(`/song/url?id=${id}`)
@@ -173,9 +179,18 @@ export default ({
     getSongdetail(id) {
         return fly.get(`/song/detail?ids=${id}`)
     },
+
     //获取歌手专辑 
     getAlbum(id, limit) {
         return fly.get(`/artist/album?id=${id}&limit=${limit}`)
+    },
+    //获取歌手歌曲和歌手信息
+    getSong(id) {
+        return fly.get(`/artists?id=${id}`)
+    },
+    //获取歌手视频
+    getMv(id, limit) {
+        return fly.get(`/artist/mv?id=${id}&limit=${limit}`)
     },
     //关键字搜索
     // limit : 返回数量 , 默认为 30 offset : 偏移数量，用于分页 , 如 : 如 :( 页数 -1)*30, 其中 30 为 limit 的值 

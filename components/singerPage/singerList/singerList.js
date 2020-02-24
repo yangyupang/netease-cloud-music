@@ -33,6 +33,13 @@ Component({
                 limit: this.properties.limit
             })
             this.triggerEvent('newLimit', this.properties.limit)
+        },
+        chooseItem(e) {
+            wx.navigateTo({
+                url: `../../pages/singerDetails/singerDetails?id=${e.currentTarget.dataset.item.id}`,
+            });
+            // console.log(e.currentTarget.dataset.item.id);
+
         }
     }
 })

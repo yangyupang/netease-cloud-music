@@ -1,4 +1,5 @@
 import api from "../../http/api" // pages/singer/singer.js
+var time = require('../../utils/util.js');
 Page({
 
     /**
@@ -18,16 +19,12 @@ Page({
     // getTypeList(){
     //   api.typeList
     // },
-    /**
-     * 生命周期函数--监听页面加载
-     */
+
     //选择歌手
     clickItem(e) {
         wx.showLoading({
             title: '加载中...',
         });
-        // console.log(e.currentTarget.dataset.index);
-        // console.log(e.currentTarget.dataset.item.id);
         let index = e.currentTarget.dataset.index
         let item = e.currentTarget.dataset.item
         this.setData({
@@ -79,6 +76,9 @@ Page({
             limit: this.data.limit,
         })
     },
+    /**
+     * 生命周期函数--监听页面加载
+     */
     onLoad: function(options) {
         wx.showLoading({
             title: '加载中...',
@@ -88,6 +88,7 @@ Page({
             initial: api.initial
         })
         this.getArtist()
+        
     },
 
     /**

@@ -58,23 +58,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/singer/singer",
-					"pathName": "pages/singer/singer",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "pages/my/my",
-					"pathName": "pages/my/my",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/editor/editor",
-					"pathName": "pages/editor/editor",
-					"query": "uid=3227354994",
+					"name": "pages/recommendPlaylist/recommendPlaylist",
+					"pathName": "pages/recommendPlaylist/recommendPlaylist",
+					"query": "id=3114363672",
 					"scene": null
 				}
 			]

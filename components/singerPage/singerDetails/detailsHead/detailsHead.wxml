@@ -1,0 +1,19 @@
+<view class="container p-relative">
+    <view class="singer-name p-absolute">{{singerName}}</view>
+    <view class="flex p-absolute btn">
+        <view class="flex focus">
+            <van-icon name="plus" />
+            关注
+        </view>
+        <view class="flex messages">
+            <van-icon name="envelop-o" />
+            发私信
+        </view>
+    </view>
+    <image class="singer-img" bind:tap="save" aspectFill src="{{picUrl}}" />
+</view>
+<view class="bg" bind:tap='hideView' wx:if="{{isShow}}"></view>
+<view class="show" wx:if="{{isShow}}">
+    <image src="{{picUrl}}" />
+</view>
+<view class="save" wx:if="{{isShow}}" bind:tap="determine">保存到本地</view>

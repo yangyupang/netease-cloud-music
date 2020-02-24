@@ -1,0 +1,69 @@
+<!-- <image class="bg-img p-absolute" src="{{playlist.creator.backgroundUrl}}" /> -->
+<view>
+    <view class="p-fixed bg-img" wx:if="{{playlist.creator.backgroundUrl !== null}}" style="background: url({{playlist.creator.backgroundUrl}});"></view>
+    <view class="p-fixed bg-img" wx:else style="background:#f46f46;"></view>
+    <navCustom title="歌单"></navCustom>
+    <view class="flex j-between" style="margin-top: 40rpx;padding: 0rpx 30rpx;">
+        <image class="cover-img" src="{{playlist.coverImgUrl}}" />
+        <view style="width: 80%;margin-left: 30rpx;">
+            <view class="play-name t-h">{{playlist.name}}</view>
+            <view class="flex a-center" style="margin: 14rpx 0;color:#fff">
+                <image class="creator-img" src="{{playlist.creator.avatarUrl}}" />
+                <view class="creator-nickname">{{playlist.creator.nickname}}</view>
+                <van-icon name="arrow" />
+            </view>
+            <view class="flex a-center j-between" style="color:#fff">
+                <view class="creator-signature t-h">{{playlist.creator.signature}}</view>
+                <van-icon name="arrow" />
+            </view>
+        </view>
+    </view>
+    <view class="flex j-around a-center" style="margin:40rpx 0;padding: 0rpx 30rpx;">
+        <view style="color:#fff" class="fixed-sty t-center">
+            <image class="img-size" src="/assets/images/comment.png" />
+            <view>{{playlist.commentCount}}</view>
+        </view>
+        <view style="color:#fff" class="fixed-sty t-center">
+            <image class="img-size" src="/assets/images/share.png" />
+            <view>{{playlist.shareCount}}</view>
+        </view>
+        <view style="color:#fff" class="fixed-sty t-center">
+            <image class="img-size" src="/assets/images/download.png" />
+            <view>下载</view>
+        </view>
+        <view style="color:#fff" class="fixed-sty t-center">
+            <image class="img-size" src="/assets/images/check.png" />
+            <view>多选</view>
+        </view>
+    </view>
+    <view class="song-box">
+        <view class="flex j-between a-center">
+            <view class="flex a-center">
+                <image class="round-play" src="/assets/images/round-play.png" />
+                <view class="flex a-center">
+                    <view>播放全部</view>
+                    <view style="font-size: 32rpx;color:rgb(192, 192, 187)">
+                        (共{{playlist.tracks.length}}首)
+                    </view>
+                </view>
+            </view>
+            <view class="collection flex a-center" style="color: #fff;font-size: 32rpx;padding: 20rpx 10rpx;background: red;border-radius: 50rpx">
+                <van-icon name="plus" />
+                <view>收藏({{playlist.subscribedCount}})</view>
+            </view>
+        </view>
+        <scroll-view scroll-y="true" class="song-scr">
+            <view class="flex j-between a-center" style="margin-bottom: 30rpx;" wx:for="{{playlist.tracks}}" wx:key="index" data-item="{{item}}" bind:tap="chooseSong">
+                <view style="color:rgb(209, 208, 208);font-weight:600">{{index+1}}</view>
+                <view class="" style="width: 64%;">
+                    <view class="song-name o-h">{{item.name}}</view>
+                    <view class="song-describe o-h">{{item.ar[0].name}}-{{item.al.name}}</view>
+                </view>
+                <view class="flex">
+                    <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/square-paly.png" />
+                    <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/point.png" />
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

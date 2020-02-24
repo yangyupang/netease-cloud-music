@@ -120,6 +120,19 @@
 }
 
 
+/* 两行超出隐藏 */
+
+.t-h {
+    overflow: hidden;
+    /* 将元素设为盒子伸缩模型显示 */
+    display: -webkit-box;
+    /* 伸缩方向设为垂直方向 */
+    -webkit-box-orient: vertical;
+    /* 超出3行隐藏，并显示省略号 */
+    -webkit-line-clamp: 2;
+}
+
+
 /* 超出三行隐藏 */
 
 .m-h {

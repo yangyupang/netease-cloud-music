@@ -1,0 +1,18 @@
+/* components/navCustom/navCustom.wxss */
+
+.action-btn {
+    font-size: 36rpx;
+    color: #ffffff;
+    width: 65%;
+    margin: 70rpx 0 0 30rpx;
+}
+
+.back-img,
+.point-img {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.list-name {
+    margin-left: 30rpx;
+}
