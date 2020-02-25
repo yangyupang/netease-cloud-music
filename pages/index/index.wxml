@@ -1,6 +1,6 @@
 <!-- index.wxml -->
 <view>
-    <view class="search-container flex a-center t-center p-fixed">
+    <view class="search-container flex a-center t-center p-fixed j-between">
         <view class="music-hall">音乐馆</view>
         <view class="music-search">
             <van-search value="{{searchValue}}" placeholder="请输入搜索关键词"></van-search>
@@ -12,8 +12,8 @@
     <view class="banner-container">
         <slideshow style="border-radius: 25rpx;" bannerList="{{bannerList}}"></slideshow>
     </view>
-    <view class="flex same-container a-center t-center">
-        <view class="f-1" wx:for="{{sameList}}" wx:key="index">
+    <view class="flex same-container a-center t-center j-between">
+        <view class="" wx:for="{{sameList}}" wx:key="index">
             <view class="same-img">
                 <image class="same-size" src="{{item.url}}" />
             </view>

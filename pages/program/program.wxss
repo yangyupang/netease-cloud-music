@@ -1,0 +1,140 @@
+/* pages/radio/radio.wxss */
+
+.stars-img {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.program-name {
+    font-weight: 600;
+}
+
+.program-likedCount {
+    margin-top: 10rpx;
+    font-size: 32rpx;
+}
+
+.sub-box {
+    padding: 20rpx 30rpx;
+    border-radius: 50rpx;
+    background-color: red;
+}
+
+.subscribe {
+    font-size: 34rpx;
+    margin-left: 10rpx;
+}
+
+.container {
+    padding: 0 30rpx;
+    background-color: #fff;
+    border-radius: 50rpx 50rpx 0 0;
+    left: 0;
+    right: 0;
+    top: 515rpx;
+}
+
+.program-num {
+    font-size: 30rpx;
+    margin-left: 6rpx;
+    margin-top: 12rpx;
+    color: rgb(209, 206, 206);
+}
+
+.font-col {
+    color: red;
+}
+
+.line-sty {
+    width: 68rpx;
+    left: 41%;
+    bottom: 2rpx;
+    background: red;
+    height: 6rpx;
+}
+
+.host,
+.abstract,
+.comments {
+    margin-bottom: 20rpx;
+    font-weight: 600;
+}
+
+.host-img {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    border: 2rpx solid black;
+}
+
+.host-name {
+    font-size: 34rpx;
+    margin-bottom: 10rpx;
+}
+
+.host-signature {
+    width: 410rpx;
+    font-size: 32rpx;
+    color: rgb(209, 206, 206);
+}
+
+.appreciates {
+    color: red;
+    padding: 10rpx 30rpx;
+    font-size: 34rpx;
+    border: 2rpx solid red;
+    border-radius: 50rpx;
+}
+
+.radio-category {
+    padding: 2rpx 10rpx;
+    border: 2rpx solid red;
+    color: red;
+    border-radius: 10rpx;
+    margin-left: 10rpx;
+}
+
+.user-img {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.comments-box {
+    margin-bottom: 40rpx;
+}
+
+.user-nickname {
+    margin-bottom: 20rpx;
+    font-size: 34rpx;
+    color: rgb(209, 206, 206);
+}
+
+.user-content {
+    font-size: 36rpx;
+    margin-bottom: 40rpx;
+}
+
+.img-size {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.font-siz {
+    font-size: 32rpx;
+    color: rgb(209, 206, 206);
+}
+
+.length {
+    font-weight: 600;
+}
+
+.song-name {
+    font-size: 34rpx;
+}
+
+.song-describe {
+    font-size: 30rpx;
+    color: rgb(209, 208, 208);
+}

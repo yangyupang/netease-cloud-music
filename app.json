@@ -7,7 +7,10 @@
         "pages/login/login",
         "pages/register/register",
         "pages/editor/editor",
-        "pages/recommendPlaylist/recommendPlaylist"
+        "pages/recommendPlaylist/recommendPlaylist",
+        "pages/newDisc/newDisc",
+        "pages/radio/radio",
+        "pages/program/program"
     ],
     "window": {
         "backgroundTextStyle": "light",

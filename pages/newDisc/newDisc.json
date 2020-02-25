@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "navCustom": "../../components/navCustom/navCustom",
+        "van-icon": "../../../../lib/vant/icon/index"
+    },
+    "navigationStyle": "custom"
+}

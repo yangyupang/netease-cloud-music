@@ -1,4 +1,4 @@
-// pages/recommendPlaylist/recommendPlaylist.js
+// pages/newDisc/newDisc.jsv
 import api from "../../http/api"
 Page({
 
@@ -6,15 +6,18 @@ Page({
      * 页面的初始数据
      */
     data: {
-        playlist: {}
+        albumList: {},
+        songs: []
     },
-    getPlaylistDetail(id) {
-        api.playlistDetail(id).then(res => {
+    getAlbum(id) {
+        api.album(id).then(res => {
             if (res.code === 200) {
                 this.setData({
-                        playlist: res.playlist
-                    })
-                    // console.log();
+                    albumList: res.album,
+                    songs: res.songs
+                })
+                console.log(res.album);
+                console.log(res.songs);
             }
 
         }).catch(err => {
@@ -22,14 +25,13 @@ Page({
         });
     },
     chooseSong(e) {
-        console.log(e.currentTarget.dataset.item);
+        console.log(e.currentTarget.dataset.item.id);
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.getPlaylistDetail(options.id)
-            // console.log(options.id);
+        this.getAlbum(options.id)
     },
 
     /**
