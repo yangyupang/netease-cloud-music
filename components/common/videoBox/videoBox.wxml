@@ -1,0 +1,18 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view>
+    <view class="flex">
+        <view class="video-left">
+            <image class="video-pic" src="{{item.coverUrl}}" />
+            <view class="playCount flex">
+                <image class="play-icon" src="../../../assets/images/play.png" />
+                <view>{{filter.numberVonversion(item.playTime)}}</view>
+            </view>
+        </view>
+        <view>
+            <view class="video-title">{{item.title}}</view>
+            <view class="video-time">
+                {{filter.formatTime(item.durationms ,'m:s')}} by {{item.creator[0].userName}}
+            </view>
+        </view>
+    </view>
+</view>

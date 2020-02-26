@@ -13,11 +13,11 @@ Page({
         api.album(id).then(res => {
             if (res.code === 200) {
                 this.setData({
-                    albumList: res.album,
-                    songs: res.songs
-                })
-                console.log(res.album);
-                console.log(res.songs);
+                        albumList: res.album,
+                        songs: res.songs
+                    })
+                    // console.log(res.album);
+                    // console.log(res.songs);
             }
 
         }).catch(err => {

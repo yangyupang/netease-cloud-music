@@ -1,6 +1,6 @@
 .banner-container {
     /* margin: 20rpx 0; */
-    margin: 136rpx 0 30rpx 0;
+    margin: 30rpx 0 30rpx 0;
     padding: 0 20rpx;
     border-radius: 25rpx;
 }
@@ -46,4 +46,83 @@
 .same-title {
     font-size: 36rpx;
     font-weight: 600;
+}
+
+.header {
+    height: 8vh;
+    width: 100%;
+    position: relative;
+}
+
+.header-title {
+    margin: 0 30rpx;
+    width: 120rpx;
+    line-height: 8vh;
+    font-weight: 700;
+}
+
+.header-search {
+    width: 400rpx;
+    height: 70rpx;
+    margin: 15rpx 10rpx;
+    border-radius: 5rpx;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+.header-pic {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 25rpx 30rpx;
+}
+
+.header-back {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 25rpx 30rpx;
+}
+
+.header-search1 {
+    width: 500rpx;
+    height: 70rpx;
+    margin: 15rpx 0;
+    font-size: 3;
+    border-bottom: 1rpx solid black;
+}
+
+.search-suggest {
+    position: absolute;
+    top: 100rpx;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 10rpx gray;
+    z-index: 99;
+}
+
+.suggest-top {
+    color: #628c90;
+}
+
+.search-icon {
+    margin-right: 10rpx;
+}
+
+.suggest-each {
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 20rpx;
+    border: .1rpx solid #dedede;
+}
+
+.main-pd {
+    padding: 0 20rpx;
+}
+
+.main::-webkit-scrollbar {
+    display: none;
+}
+
+.search-result {
+    height: 8vh;
 }

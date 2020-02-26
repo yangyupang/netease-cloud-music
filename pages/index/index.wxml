@@ -1,28 +1,70 @@
 <!-- index.wxml -->
 <view>
-    <view class="search-container flex a-center t-center p-fixed j-between">
-        <view class="music-hall">音乐馆</view>
-        <view class="music-search">
+    <!-- 头部 -->
+    <view>
+        <!-- 搜索 -->
+        <view class="header flex" wx:if="{{searchFlag}}">
+            <view>
+                <image bind:tap="goSearch" class="header-back" src="../../assets/images/back1.png" />
+            </view>
+            <input type="text" value="{{value}}" auto-focus placeholder="{{keywords.showKeyword}}" bindinput="bindinput" bindconfirm="SearchNow" bindfocus="showSug" bindblur="closeSug" confirm-type="search" class="header-search1" />
+            <!-- 搜索建议 -->
+            <view wx:if="{{sugFlag}}" class="search-suggest">
+                <view bind:tap="SearchNow" class="suggest-top suggest-each">搜索"{{value}}"</view>
+                <view bind:tap="SearchNow" data-sug="{{item.keyword}}" class="suggest-each" wx:for="{{suggest}}" wx:key="index">
+                    <van-icon size='18' custom-class="search-icon" name="search" />
+                    {{item.keyword}}
+                </view>
+            </view>
+            <view>
+                <image wx:if="{{value===''}}" class="header-pic" src="../../assets/images/search.png" />
+                <image wx:else bind:tap="clearKeywords" class="header-pic" src="../../assets/images/clear.png" />
+            </view>
+        </view>
+        <!-- 主页 -->
+        <view class="header flex" wx:else>
+            <view class="header-title">音乐馆</view>
+            <van-search bind:tap="goSearch" placeholder="请输入搜索关键词" custom-class="header-search"></van-search>
+            <view>
+                <image class="header-pic" src="../../assets/images/music.png" />
+            </view>
+        </view>
+    </view>
+    <!-- 主要 -->
+    <scroll-view scroll-y="{{result===null}}" scroll-top="{{scrollTop}}" wx:if="{{searchFlag}}" class="main">
+        <view class="" wx:if="{{result!==null}}">
+            <searchResult class="search-result" bind:send='getResult' bind:pullUp='pullUp' result="{{result}}" />
+        </view>
+        <view wx:else class="main-pd">
+            <searchHistory wx:if="{{histories.length>0}}" bind:send='getStorge' bind:goSearch='SearchNow' histories="{{histories}}" />
+            <searchHot wx:if="{{hotList.length>0}}" bind:send='SearchNow' hotList="{{hotList}}" />
+        </view>
+    </scroll-view>
+    <!-- <view class="search-container flex a-center t-center p-fixed j-between" wx:else>
+        <view class="music-hall" >音乐馆</view>
+        <view class="music-search" style="width: 70%;">
             <van-search value="{{searchValue}}" placeholder="请输入搜索关键词"></van-search>
         </view>
         <view class="music-img">
             <image class="music-size" src="../../assets/images/music.png" />
         </view>
-    </view>
-    <view class="banner-container">
-        <slideshow style="border-radius: 25rpx;" bannerList="{{bannerList}}"></slideshow>
-    </view>
-    <view class="flex same-container a-center t-center j-between">
-        <view class="" wx:for="{{sameList}}" wx:key="index">
-            <view class="same-img">
-                <image class="same-size" src="{{item.url}}" />
-            </view>
-            <view class="same-title">{{item.title}}</view>
+    </view> -->
+    <view wx:else>
+        <view class="banner-container">
+            <slideshow style="border-radius: 25rpx;" bannerList="{{bannerList}}"></slideshow>
         </view>
+        <view class="flex same-container a-center t-center j-between">
+            <view class="" wx:for="{{sameList}}" wx:key="index">
+                <view class="same-img">
+                    <image class="same-size" src="{{item.url}}" />
+                </view>
+                <view class="same-title">{{item.title}}</view>
+            </view>
+        </view>
+        <Card list="{{personalized}}" title="personalized"></Card>
+        <Card list="{{newDisc}}" listTwo="{{newSong}}" title="discAndSong"></Card>
+        <Card list="{{newSong}}" title="song"></Card>
+        <Card list="{{djprogram}}" title="dj"></Card>
+        <Card list="{{recommend}}" title="recommend"></Card>
     </view>
-    <Card list="{{personalized}}" title="personalized"></Card>
-    <Card list="{{newDisc}}" listTwo="{{newSong}}" title="discAndSong"></Card>
-    <Card list="{{newSong}}" title="song"></Card>
-    <Card list="{{djprogram}}" title="dj"></Card>
-    <Card list="{{recommend}}" title="recommend"></Card>
 </view>

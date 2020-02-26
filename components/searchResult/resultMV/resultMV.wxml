@@ -1,0 +1,4 @@
+<view class="flex f-wrap j-around">
+    <mvBox  wx:for="{{result.mvs}}" item="{{item}}" wx:key="index"></mvBox>
+</view>
+  

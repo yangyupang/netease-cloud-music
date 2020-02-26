@@ -7,7 +7,7 @@ Page({
      */
     data: {
         //其他乱七八糟的
-        program: [],
+        djRadio: [],
         //电台节目
         songs: [],
         //电台简介
@@ -15,38 +15,44 @@ Page({
         //主播
         dj: {},
         comments: [],
-        activeIndex: 1,
+        activeIndex: 0,
+        id: '',
+        limit: 0,
     },
     getDjprogramDetail(id) {
-        api.djprogramDetail(id).then(res => {
+        api.djDetail(id).then(res => {
             if (res.code === 200) {
-                if (res.program.songs.length === 0) {
-                    this.data.songs[0] = res.program.mainSong
-                    this.setData({
-                        songs: this.data.songs
-                    })
-                } else {
-                    this.setData({
-                        songs: res.program.songs
-                    })
-                }
                 this.setData({
-                    radio: res.program.radio,
-                    dj: res.program.dj,
-                    program: res.program
+                    djRadio: res.djRadio,
+                    dj: res.djRadio.dj,
+                    limit: res.djRadio.programCount
                 })
+                this.programList(this.data.limit)
             }
         }).catch(err => {
             console.log(err);
         });
     },
     getDjproComment(id) {
-        api.djproComment(id).then(res => {
+        api.programComment(id).then(res => {
             if (res.code === 200) {
                 this.setData({
-                    comments: res.comments
+                        comments: res.comments
+                    })
+                    // console.log(res);
+            }
+        }).catch(err => {
+            console.log(err);
+        });
+    },
+    programList(lim) {
+        api.programList(this.data.id, lim).then(res => {
+            if (res.code === 200) {
+                this.setData({
+                    songs: res.programs
                 })
             }
+            // console.log(res);
         }).catch(err => {
             console.log(err);
         });
@@ -64,9 +70,11 @@ Page({
      */
     onLoad: function(options) {
         // console.log(options.id);
+        this.setData({
+            id: options.id
+        })
         this.getDjprogramDetail(options.id)
         this.getDjproComment(options.id)
-
     },
 
     /**

@@ -1,0 +1,8 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view class="mv-box">
+    <view class="mv-top">
+        <view class="mv-count">{{filter.numberVonversion(item.playCount)}}</view>
+        <image class="mv-pic" src="{{item.cover?item.cover:item.imgurl}}"></image>
+    </view>
+    <view class="mv-title">{{item.name}}</view>
+</view>

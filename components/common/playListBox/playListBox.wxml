@@ -1,0 +1,12 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view class="flex playlist-main" bind:tap="goPlaylist">
+    <view>
+        <image class="playlist-pic" src="{{item.coverImgUrl}}" />
+    </view>
+    <view>
+        <view class="playlist-name" data-id="{{item.id}}">{{item.name}}</view>
+        <view class="playlist-info">
+            {{item.trackCount}}首 by {{item.creator.nickname}}，播放{{filter.numberVonversion(item.playCount)}}次
+        </view>
+    </view>
+</view>

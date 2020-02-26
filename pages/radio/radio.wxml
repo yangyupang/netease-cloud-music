@@ -1,11 +1,11 @@
 <wxs module="filter" src="../../assets/filter.wxs"></wxs>
 <view>
-    <image class="" src="{{program.coverUrl}}" style="width: 100%;" />
+    <image class="" src="{{djRadio.picUrl}}" style="width: 100%;" />
     <view class="flex j-between a-center p-relative" style="padding:0 30rpx;top:-166rpx;">
         <view style="color:#fff;width: 60%;">
-            <view class="program-name o-h">{{program.name}}</view>
+            <view class="program-name o-h">{{djRadio.name}}</view>
             <view class="program-likedCount">
-                {{filter.numberVonversion(program.likedCount)}}人订阅
+                {{filter.numberVonversion(djRadio.likedCount)}}人订阅
             </view>
         </view>
         <view style="color:#fff;" class="flex a-center sub-box">
@@ -22,7 +22,7 @@
             <view class="t-center p-relative" style="width:50%;padding:30rpx 0" data-index="{{1}}" bind:tap="choose">
                 <view class="flex a-center j-center">
                     <view class="{{activeIndex===1?'font-col':''}}">节目</view>
-                    <view class="program-num">{{songs.length}}</view>
+                    <view class="program-num {{activeIndex===1?'font-col':''}}">{{djRadio.programCount}}</view>
                 </view>
                 <view class="p-absolute {{activeIndex===1?'line-sty':''}}"></view>
             </view>
@@ -43,13 +43,13 @@
                 <view class="abstract" style="margin-top:20rpx">电台内容简介</view>
                 <view class="flex a-center" style="font-size:30rpx;color:rgb(209, 206, 206);margin-top:10rpx">
                     <view>分类:</view>
-                    <view class="radio-category">{{radio.category}}</view>
+                    <view class="radio-category">{{djRadio.category}}</view>
                 </view>
                 <view style="font-size:30rpx;color:rgb(209, 206, 206);margin-top:10rpx">
-                    {{radio.desc}}
+                    {{djRadio.desc}}
                 </view>
             </view>
-            <view style="margin-top:40rpx">
+            <view style="margin-top:40rpx" wx:if="{{comments.length>0}}">
                 <view class="comments" style="margin-top:20rpx">精彩评论</view>
                 <view class="flex j-between comments-box" wx:for="{{comments}}" wx:key="index">
                     <image class="user-img" src="{{item.user.avatarUrl}}" />
@@ -59,6 +59,10 @@
                     </view>
                 </view>
             </view>
+            <view style="margin-top:40rpx" wx:else>
+                <view class="comments" style="margin-top:20rpx">暂无评论</view>
+            </view>
+              
         </scroll-view>
         <scroll-view scroll-y="true" wx:if="{{activeIndex===1}}" style="padding-top: 30rpx;height: 536rpx;">
             <view class="flex j-between a-center" style="margin-bottom: 40rpx;">
@@ -81,13 +85,13 @@
                 <view class="" style="width: 64%;">
                     <view class="song-name o-h">{{item.name}}</view>
                     <view class="song-describe o-h flex">
-                        <view wx:if="{{item.album.publishTime>0}}">
-                            {{filter.formatTime(item.album.publishTime,'Y-M-D')}}
+                        <view wx:if="{{item.createTime>0}}">
+                            {{filter.formatTime(item.createTime,'Y-M-D')}}
                         </view>
                         <view wx:else>暂无发布时间</view>
                         <view class="flex a-center" style="margin-left:20rpx">
                             <van-icon name="clock-o" size="30rpx"/>
-                            <view>{{filter.formatTime(item.duration * 1000,'m:s')}}</view>
+                            <view>{{filter.formatTime(item.duration,'m:s')}}</view>
                         </view>
                     </view>
                 </view>

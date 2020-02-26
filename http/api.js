@@ -139,29 +139,71 @@ export default ({
         return fly.get(`/album/?id=${id}`)
     },
 
-
-    //推荐电台
-    djprogram() {
-        return fly.get(`/personalized/djprogram`)
+    /**
+     * 推荐电台
+     */
+    djRecommend() {
+        return fly.get(`/dj/recommend`)
     },
-
-    //推荐节目
-    recommend() {
+    /**
+     * 推荐节目
+     */
+    programRecommend() {
         return fly.get(`/program/recommend`)
     },
+    /**
+     * 电台详情
+     * @param {*} rid 电台id
+     */
+    djDetail(rid) {
+        return fly.get(`/dj/detail?rid=${rid}`)
+    },
+    /**
+     * 电台节目列表
+     * @param {*} rid 电台id
+     * @param {number} page 页数
+     */
+    programList(rid, limit) {
+        return fly.get(`dj/program?rid=${rid}&limit=${limit}`)
+    },
+    /**
+     * 节目详情
+     * @param {*} id 电台节目id
+     */
+    programDetail(id) {
+        return fly.get(`/dj/program/detail?id=${id}`)
+    },
+    /**
+     * 电台 节目评论
+     * @param {*} id 电台 节目id
+     */
+    programComment(id) {
+        return fly.get(`/comment/dj?id=${id}&limit=20`)
+    },
+    //推荐电台
+    // djprogram() {
+    //     return fly.get(`/personalized/djprogram`)
+    // },
+
+    // //推荐节目
+    // recommend() {
+    //     return fly.get(`/program/recommend`)
+    // },
 
     //电台 - 节目详情
     //id 推荐节目的 item.id
     //id 推荐电台的 item.id
-    djprogramDetail(id) {
-        return fly.get(`/dj/program/detail?id=${id}`)
-    },
+    // djprogramDetail(id) {
+    //     return fly.get(`/dj/program/detail?id=${id}`)
+    // },
     // 电台 节目详情的精彩评论的接口
     // 返回的hotComments字段为热门评论，如果hotComments数组为空则取comments作为热门评论展示
     // PS:推荐节目中的id为对象最外层id，不要用mainSong里面提供的id(404警告)
-    djproComment(id) {
-        return fly.get(`/comment/dj?id=${id}`)
-    },
+    // djproComment(id) {
+    //     return fly.get(`/comment/dj?id=${id}`)
+    // },
+
+
     //获取音乐 url 电台也是
     musicUrl(id) {
         return fly.get(`/song/url?id=${id}`)
@@ -198,15 +240,15 @@ export default ({
     // keywordSearch(keyword) {
     //     return fly.get(`/search?keywords=${keyword}`)
     // },
-    keywordSearch(keyword, type = 1018) {
-        return fly.get(`/search?keywords=${keyword}&type=${type}`)
+    keywordSearch(keyword, type = 1018, offset = 0) {
+        return fly.get(`/search?keywords=${keyword}&type=${type}&offset=${offset}`)
     },
     //搜索多重匹配
     multimatch(keyword) {
         return fly.get(`/search/multimatch?keywords=${keyword}`)
     },
     //默认搜索关键词
-    defaultKeyword() {
+    searchDefalut() {
         return fly.get(`/search/default`)
     },
     // 搜索联想词

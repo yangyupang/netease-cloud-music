@@ -1,0 +1,32 @@
+.album-main {
+    margin-top: 30rpx;
+}
+
+.album-pic {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 20rpx;
+}
+
+.ablum-right {
+    margin-left: 40rpx;
+    line-height: 60rpx;
+}
+
+.album-title {
+    width: 500rpx;
+    height: 60rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.album-info {
+    height: 60rpx;
+    font-size: 28rpx;
+}
+
+.album-name {
+    color: #84a6c7;
+    margin-right: 10rpx;
+}

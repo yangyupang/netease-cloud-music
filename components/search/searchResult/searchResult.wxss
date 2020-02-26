@@ -1,0 +1,13 @@
+.main {
+    background: wheat;
+}
+
+.result-scorll {
+    height: 84vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.result-pd {
+    padding: 0 20rpx;
+}

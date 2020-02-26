@@ -1,0 +1,22 @@
+.history-title {
+    margin: 30rpx 0;
+}
+.history-main{
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+.history-main::-webkit-scrollbar{
+    display: none;
+}
+.hisotry-each{
+    padding: 5rpx 20rpx;
+    background: #ededed;
+    border-radius: 19rpx;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+    font-size: 30rpx;
+}
+.dialog{
+    width: 80%;
+}

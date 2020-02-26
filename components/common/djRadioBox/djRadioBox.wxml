@@ -1,0 +1,9 @@
+<view class="dj-main flex" bind:tap="gotoRadio">
+    <view>
+        <image class="dj-pic" src="{{item.picUrl}}" />
+    </view>
+    <view class="dj-right">
+        <view class="dj-title">{{item.name}}</view>
+        <view class="dj-info">{{item.dj.nickname}}</view>
+    </view>
+</view>

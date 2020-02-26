@@ -1,10 +1,13 @@
-// components/homePage/search/search.js
+// components/searchResult/resultAlbum/resultAlbum.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    result: {
+      type: Object,
+      value: {}
+    }
   },
 
   /**
@@ -19,5 +22,8 @@ Component({
    */
   methods: {
 
+  },
+  ready() {
+    console.log(this.properties.result);
   }
 })

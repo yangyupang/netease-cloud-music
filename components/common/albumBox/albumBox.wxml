@@ -1,0 +1,14 @@
+<wxs module="filter" src="../../../assets/filter.wxs"></wxs>
+<view class="flex album-main" bind:tap="gotoAlbum">
+    <view>
+        <image class="album-pic" src="{{item.picUrl}}" />
+    </view>
+    <view class="ablum-right">
+        <view class="album-title">{{item.name}}</view>
+        <view class="album-info flex">
+            <view class="album-name">{{item.artist.name}}</view>
+            <view class="">{{filter.formatTime(item.publishTime,'Y.M.D')}}</view>
+            <!-- <text wx:if="{{size!==''}}">歌曲{{size}}</text> -->
+        </view>
+    </view>
+</view>
