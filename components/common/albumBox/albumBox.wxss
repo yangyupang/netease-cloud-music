@@ -6,6 +6,36 @@
     width: 180rpx;
     height: 180rpx;
     border-radius: 20rpx;
+    z-index: 1;
+}
+
+.dic-line {
+    width: 170rpx;
+    height: 170rpx;
+    border: 2rpx solid rgb(129, 128, 128);
+    right: -4rpx;
+    top: 5rpx;
+    z-index: -1;
+}
+
+.dic-circle {
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 50%;
+    right: -22rpx;
+    top: 9rpx;
+    z-index: -2;
+    background-color: rgb(43, 42, 42);
+}
+
+.dic-triangle {
+    width: 0;
+    height: 0;
+    border: 20rpx solid rgb(129, 128, 128);
+    border-right-color: rgb(43, 42, 42);
+    right: -3rpx;
+    top: 72rpx;
+    z-index: -1;
 }
 
 .ablum-right {

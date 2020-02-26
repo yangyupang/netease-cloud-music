@@ -138,3 +138,15 @@
     font-size: 30rpx;
     color: rgb(209, 208, 208);
 }
+
+.hor-line {
+    width: 80rpx;
+    height: 4rpx;
+    background-color: rgb(209, 208, 208);
+}
+
+.program-name2 {
+    font-size: 32rpx;
+    color: rgb(209, 208, 208);
+    margin-bottom: 40rpx;
+}

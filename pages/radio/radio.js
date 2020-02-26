@@ -25,21 +25,10 @@ Page({
                 this.setData({
                     djRadio: res.djRadio,
                     dj: res.djRadio.dj,
-                    limit: res.djRadio.programCount
+                    limit: res.djRadio.programCount,
+                    comments: res.djRadio.commentDatas
                 })
                 this.programList(this.data.limit)
-            }
-        }).catch(err => {
-            console.log(err);
-        });
-    },
-    getDjproComment(id) {
-        api.programComment(id).then(res => {
-            if (res.code === 200) {
-                this.setData({
-                        comments: res.comments
-                    })
-                    // console.log(res);
             }
         }).catch(err => {
             console.log(err);
@@ -74,7 +63,6 @@ Page({
             id: options.id
         })
         this.getDjprogramDetail(options.id)
-        this.getDjproComment(options.id)
     },
 
     /**

@@ -1,26 +1,43 @@
-.mv-box{
-    width: 320rpx;
-    height: 240rpx;
-    margin: 30rpx 0;
+.mv-main {
+    margin: 40rpx 0;
 }
-.mv-top{
+
+.mv-left {
     position: relative;
+    margin: 10rpx;
 }
-.mv-pic{
-    width: 320rpx;
-    height: 180rpx;
-    border-radius: 15rpx;
+
+.mv-pic {
+    height: 160rpx;
+    width: 240rpx;
+    border-radius: 20rpx;
 }
-.mv-count{
-    font-size: 28rpx;
+
+.playCount {
     position: absolute;
     right: 10rpx;
-    top: 10rpx;
+    top: 5rpx;
     color: white;
+    font-size: 28rpx;
 }
-.mv-title{
+
+.play-icon {
+    margin-top: 4rpx;
+    height: 30rpx;
+    width: 30rpx;
+}
+
+.mv-right {
+    margin: 10rpx;
+    line-height: 40rpx;
+}
+
+.mv-title {
     font-size: 32rpx;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+}
+
+.mv-time {
+    font-size: 28rpx;
+    color: #bbbbbb;
+    margin-top: 10rpx;
 }

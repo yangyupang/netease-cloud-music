@@ -193,15 +193,15 @@ export default ({
     //电台 - 节目详情
     //id 推荐节目的 item.id
     //id 推荐电台的 item.id
-    // djprogramDetail(id) {
-    //     return fly.get(`/dj/program/detail?id=${id}`)
-    // },
+    djprogramDetail(id) {
+        return fly.get(`/dj/program/detail?id=${id}`)
+    },
     // 电台 节目详情的精彩评论的接口
     // 返回的hotComments字段为热门评论，如果hotComments数组为空则取comments作为热门评论展示
     // PS:推荐节目中的id为对象最外层id，不要用mainSong里面提供的id(404警告)
-    // djproComment(id) {
-    //     return fly.get(`/comment/dj?id=${id}`)
-    // },
+    djproComment(id) {
+        return fly.get(`/comment/dj?id=${id}`)
+    },
 
 
     //获取音乐 url 电台也是

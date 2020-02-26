@@ -63,10 +63,10 @@ Component({
                 });
                 // console.log(e.currentTarget.dataset.item.id);
             } else if (this.properties.title === 'recommend') {
-                // wx.navigateTo({
-                //     url: `/pages/program/program?id=${e.currentTarget.dataset.item.id}`,
-                // });
-                console.log(e.currentTarget.dataset.item.id);
+                wx.navigateTo({
+                    url: `/pages/program/program?id=${e.currentTarget.dataset.item.id}`,
+                });
+                // console.log(e.currentTarget.dataset.item.id);
             }
             // console.log(e.currentTarget.dataset.item);
             // let item =

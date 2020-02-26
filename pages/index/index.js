@@ -228,9 +228,9 @@ Page({
                     info.id === 1002 ? result.userprofiles.push(...res.result.userprofiles) :
                     info.id === 1004 ? result.mvs.push(...res.result.mvs) : ''
                 this.setData({
-                    result: result
-                })
-                console.log(result);
+                        result: result
+                    })
+                    // console.log(result);
                 wx.hideLoading();
             }
         })

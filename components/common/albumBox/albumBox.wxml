@@ -1,7 +1,10 @@
 <wxs module="filter" src="../../../assets/filter.wxs"></wxs>
 <view class="flex album-main" bind:tap="gotoAlbum">
-    <view>
+    <view class="p-relative">
         <image class="album-pic" src="{{item.picUrl}}" />
+        <view class="p-absolute dic-line"></view>
+        <view class="p-absolute dic-circle"></view>
+        <view class="p-absolute dic-triangle"></view>
     </view>
     <view class="ablum-right">
         <view class="album-title">{{item.name}}</view>

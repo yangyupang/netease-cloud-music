@@ -1,5 +1,5 @@
 <wxs module="filter" src="../../../assets/filter.wxs"></wxs>
-<view>
+<view  bind:tap="choose" data-item="{{item}}">
     <view class="flex">
         <view class="video-left">
             <image class="video-pic" src="{{item.coverUrl}}" />
@@ -8,7 +8,7 @@
                 <view>{{filter.numberVonversion(item.playTime)}}</view>
             </view>
         </view>
-        <view>
+        <view style="margin-left:20rpx">
             <view class="video-title">{{item.title}}</view>
             <view class="video-time">
                 {{filter.formatTime(item.durationms ,'m:s')}} by {{item.creator[0].userName}}

@@ -1,5 +1,10 @@
 <view style="font-size: 32rpx;margin: 20rpx 0;">您可能感兴趣</view>
-<view></view>
+<view>
+    <artistBox wx:for="{{result.artist.artists}}" item="{{item}}" wx:key="index" />
+    <view style="padding: 0 20rpx;">
+        <albumBox wx:for="{{result.album.albums}}" wx:if="{{index===0}}" item="{{item}}" wx:key="index" />
+    </view>
+</view>
 <view class="songs">
     <view class="main-title flex j-between a-center">
         <view class="left">单曲</view>
@@ -52,7 +57,7 @@
             </view>
         </view>
     </view>
-     <view class="reader-more">{{result.mlog.moreText}}</view>
+    <view class="reader-more">{{result.mlog.moreText}}</view>
 </view>
 <view class="talk">
     <view class="main-title">主题</view>
