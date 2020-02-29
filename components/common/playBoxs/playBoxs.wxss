@@ -1,0 +1,32 @@
+/* components/common/playBox/playBox.wxss */
+
+.box {
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 30rpx;
+}
+
+.picUrl-img {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.song-name {
+    font-size: 34rpx;
+    max-width: 300rpx;
+}
+
+.song-singer {
+    margin-top: 10rpx;
+    font-size: 30rpx;
+    color: #AAAAA9;
+    max-width: 300rpx;
+}
+
+.playlist-img {
+    width: 60rpx;
+    height: 60rpx;
+    margin-left: 20rpx;
+}

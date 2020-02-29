@@ -1,5 +1,9 @@
 /* pages/radio/radio.wxss */
 
+.marg-bot {
+    margin-bottom: 120rpx;
+}
+
 .stars-img {
     width: 40rpx;
     height: 40rpx;

@@ -58,16 +58,16 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/radio/radio",
-					"pathName": "pages/radio/radio",
-					"query": "id=344875085",
+					"name": "pages/musicPlay/musicPlay",
+					"pathName": "pages/musicPlay/musicPlay",
+					"query": "songId=1426285166",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/program/program",
-					"pathName": "pages/program/program",
-					"query": "id=2065639435",
+					"name": "pages/recommendPlaylist/recommendPlaylist",
+					"pathName": "pages/recommendPlaylist/recommendPlaylist",
+					"query": "id=2483018286",
 					"scene": null
 				}
 			]

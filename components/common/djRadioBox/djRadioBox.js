@@ -24,7 +24,6 @@ Component({
      */
     methods: {
         gotoRadio() {
-            console.log(this.properties.item);
             wx.navigateTo({
                 url: `/pages/radio/radio?id=${this.properties.item.id}`
             });

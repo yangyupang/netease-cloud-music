@@ -38,7 +38,7 @@
     </view>
     <view class="song-box">
         <view class="flex j-between a-center">
-            <view class="flex a-center">
+            <view class="flex a-center" bind:tap="toplayAll">
                 <image class="round-play" src="/assets/images/round-play.png" />
                 <view class="flex a-center">
                     <view>播放全部</view>
@@ -65,6 +65,8 @@
                     <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/point.png" />
                 </view>
             </view>
+            <view wx:if="{{length>0}}" style="height:120rpx"></view>
         </scroll-view>
     </view>
 </view>
+<playBoxs wx:if="{{length>0}}"></playBoxs>

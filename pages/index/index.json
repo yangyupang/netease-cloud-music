@@ -6,6 +6,7 @@
         "van-icon": "../../lib/vant/icon/index",
         "searchResult": "../../components/search/searchResult/searchResult",
         "searchHot": "../../components/search/searchHot/searchHot",
+        "playBoxs": "../../components/common/playBoxs/playBoxs",
         "searchHistory": "../../components/search/searchHistory/searchHistory"
     }
 }

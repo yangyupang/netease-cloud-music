@@ -57,7 +57,9 @@ Page({
         })
     },
     chooseSong(e) {
-        console.log(e.currentTarget.dataset.item);
+        // wx.navigateTo({
+        //     url: `/pages/musicPlay/musicPlay?programId=${2065592323}`
+        // });
     },
     /**
      * 生命周期函数--监听页面加载

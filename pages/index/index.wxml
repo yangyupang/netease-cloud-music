@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view>
+<view class="{{length >0 ? 'marg-bot':''}} {{show?'fixation':''}}">
     <!-- 头部 -->
     <view>
         <!-- 搜索 -->
@@ -31,7 +31,7 @@
         </view>
     </view>
     <!-- 主要 -->
-    <scroll-view scroll-y="{{result===null}}" scroll-top="{{scrollTop}}" wx:if="{{searchFlag}}" class="main">
+    <scroll-view scroll-y="{{result===null}}" scroll-top="{{scrollTop}}" wx:if="{{searchFlag}}" class="main {{length >0 ?'marg-bot':''}}">
         <view class="" wx:if="{{result!==null}}">
             <searchResult class="search-result" bind:send='getResult' bind:pullUp='pullUp' result="{{result}}" />
         </view>
@@ -40,15 +40,6 @@
             <searchHot wx:if="{{hotList.length>0}}" bind:send='SearchNow' hotList="{{hotList}}" />
         </view>
     </scroll-view>
-    <!-- <view class="search-container flex a-center t-center p-fixed j-between" wx:else>
-        <view class="music-hall" >音乐馆</view>
-        <view class="music-search" style="width: 70%;">
-            <van-search value="{{searchValue}}" placeholder="请输入搜索关键词"></van-search>
-        </view>
-        <view class="music-img">
-            <image class="music-size" src="../../assets/images/music.png" />
-        </view>
-    </view> -->
     <view wx:else>
         <view class="banner-container">
             <slideshow style="border-radius: 25rpx;" bannerList="{{bannerList}}"></slideshow>
@@ -68,3 +59,4 @@
         <Card list="{{recommend}}" title="recommend"></Card>
     </view>
 </view>
+<playBoxs wx:if="{{length>0}}"></playBoxs>

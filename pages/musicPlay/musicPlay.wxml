@@ -1,0 +1,42 @@
+<wxs module="filter" src="../../assets/filter.wxs"></wxs>
+<view>
+    <view class="p-fixed bg-img" wx:if="{{songDetail.coverImgUrl !== ''}}" style="background: url({{songDetail.coverImgUrl}});"></view>
+    <view class="p-fixed bg-img"></view>
+    <view class="song-name t-center o-h">{{songDetail.title}}</view>
+    <view class="song-singer t-center o-h">{{songDetail.singer}}</view>
+    <view>
+        <image class="p-absolute {{ isPlay?'operation-img':'operation-img1'}}" src="/assets/images/operation.png" />
+    </view>
+    <view class="img-box flex a-center j-center">
+        <view class="dishes-box flex a-center j-center">
+            <image class="dishes-img {{isPlay?'' :'pau'}}" wx:if="{{songDetail.coverImgUrl !== ''}}" src="{{songDetail.coverImgUrl}}" />
+            <image class="dishes-img {{isPlay?'' :'pau'}}" wx:else src="/assets/images/record.png" />
+        </view>
+    </view>
+    <view class="flex j-around padding-sty">
+        <image class="img-size" src="{{item}}" wx:for="{{imgUrl}}" wx:key="index" />
+    </view>
+    <view class='slid flex j-between padding-sty a-center'>
+        <text class='times'>{{starttime}}</text>
+        <slider class="slider" bind:change="sliderChange" block-size="12px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4c9dee" />
+        <!-- 进度时长 -->
+        <text class='times'>{{duration}}</text>
+    </view>
+    <view class="flex j-around padding-sty a-center">
+        <view bind:tap="playChange">
+            <image class="img-size" src="/assets/images/orderPlay.png" wx:if="{{play === 1}}" />
+            <image class="img-size" src="/assets/images/singleCycle.png" wx:if="{{play === 2}}" />
+            <image class="img-size" src="/assets/images/randomBroadcast.png" wx:if="{{play === 0}}" />
+        </view>
+        <image class="img-size" bind:tap="playPrev" src="/assets/images/prev-song.png" />
+        <view bind:tap="isPlay">
+            <image class="play-img" src="/assets/images/suspended.png" wx:if="{{isPlay}}" />
+            <image class="play-img" src="/assets/images/play2.png" wx:else />
+        </view>
+        <image class="img-size" bind:tap="playNext" src="/assets/images/next-song.png" />
+        <image class="img-size" bind:tap="onClose" src="/assets/images/play-list.png" />
+    </view>
+    <van-popup show="{{ show }}" bind:close="onClose" round position="bottom" custom-style="height:800rpx;">
+        <playList wx:if="{{show}}" />
+    </van-popup>
+</view>

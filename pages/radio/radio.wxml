@@ -1,5 +1,5 @@
 <wxs module="filter" src="../../assets/filter.wxs"></wxs>
-<view>
+<view >
     <image class="" src="{{djRadio.picUrl}}" style="width: 100%;" />
     <view class="flex j-between a-center p-relative" style="padding:0 30rpx;top:-166rpx;">
         <view style="color:#fff;width: 60%;">
@@ -66,6 +66,7 @@
             <view style="margin-top:40rpx" wx:else>
                 <view class="comments" style="margin-top:20rpx">暂无评论</view>
             </view>
+             <view wx:if="{{length>0}}" style="height:120rpx"></view>
         </scroll-view>
         <scroll-view scroll-y="true" wx:if="{{activeIndex===1}}" style="padding-top: 30rpx;height: 536rpx;">
             <view class="flex j-between a-center" style="margin-bottom: 40rpx;">
@@ -102,6 +103,9 @@
                     <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/point.png" />
                 </view>
             </view>
+             <view wx:if="{{length>0}}" style="height:120rpx"></view>
         </scroll-view>
     </view>
+   
 </view>
+<playBoxs wx:if="{{length>0}}"></playBoxs>

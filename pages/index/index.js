@@ -1,6 +1,14 @@
 //Page Object
 import api from "../../http/api"
-Page({
+import create from '../../utils/store/create'
+import store from '../../store/index'
+create.Page(store, {
+    use: ['playlist'],
+    computed: {
+        length() {
+            return this.playlist.length
+        }
+    },
     data: {
         bannerList: [],
         searchValue: "",
@@ -41,7 +49,8 @@ Page({
         hotList: [],
         histories: [],
         scrollTop: '',
-        page: 1
+        page: 1,
+        playlistLength: 0
     },
     //轮播图数据
     getBannerData() {
@@ -302,6 +311,10 @@ Page({
     },
     onShow: function() {
         this.getStorge()
+        this.setData({
+                playlistLength: this.store.data.playlist.length
+            })
+            // console.log(this.data.playlistLength);
     },
     getStorge() {
         if (wx.getStorageSync('histories')) {

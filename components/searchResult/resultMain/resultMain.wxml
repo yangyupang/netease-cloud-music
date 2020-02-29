@@ -1,8 +1,8 @@
 <view style="font-size: 32rpx;margin: 20rpx 0;">您可能感兴趣</view>
 <view>
-    <artistBox wx:for="{{result.artist.artists}}" item="{{item}}" wx:key="index" />
+    <artistBox item="{{result.artist.artists[0]}}" />
     <view style="padding: 0 20rpx;">
-        <albumBox wx:for="{{result.album.albums}}" wx:if="{{index===0}}" item="{{item}}" wx:key="index" />
+        <albumBox item="{{result.album.albums[0]}}" />
     </view>
 </view>
 <view class="songs">

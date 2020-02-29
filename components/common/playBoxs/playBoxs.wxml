@@ -1,0 +1,21 @@
+<view class="flex p-fixed box j-between a-center">
+    <view style="padding: 10rpx 30rpx;width:100%;border-top: 2rpx solid #AAAAA9;" class="flex j-between a-center">
+        <view class="flex" catch:tap="goToMusic">
+            <image class="picUrl-img" src="{{showData.coverImgUrl}}" />
+            <view style="margin-left: 20rpx;">
+                <view class="song-name o-h">{{showData.title}}</view>
+                <view class="song-singer o-h">{{showData.singer}}</view>
+            </view>
+        </view>
+        <view class="flex" style="z-index:1">
+            <view catch:tap="isPlay">
+                <image class="playlist-img" src="/assets/images/suspended2.png" wx:if="{{isPlay}}" />
+                <image class="playlist-img" src="/assets/images/play4.png" wx:else />
+            </view>
+            <image catch:tap="onClose" class="playlist-img" src="/assets/images/player-right-black.png" />
+            <van-popup show="{{ show }}" catch:close="onClose" round position="bottom" custom-style="height:800rpx;">
+                <playList />
+            </van-popup>
+        </view>
+    </view>
+</view>

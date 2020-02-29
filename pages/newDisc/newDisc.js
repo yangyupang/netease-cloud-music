@@ -1,23 +1,40 @@
 // pages/newDisc/newDisc.jsv
 import api from "../../http/api"
-Page({
+import create from '../../utils/store/create'
+import store from '../../store/index'
+create.Page(store, {
+    use: ['playlist'],
+    computed: {
+        length() {
+            return this.playlist.length
+        }
+    },
 
     /**
      * 页面的初始数据
      */
     data: {
         albumList: {},
-        songs: []
+        songs: [],
+        ids: []
     },
     getAlbum(id) {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        });
         api.album(id).then(res => {
             if (res.code === 200) {
+                let ids = []
+                res.songs.map(item => {
+                    ids.push(item.id)
+                })
                 this.setData({
-                        albumList: res.album,
-                        songs: res.songs
-                    })
-                    // console.log(res.album);
-                    // console.log(res.songs);
+                    albumList: res.album,
+                    songs: res.songs,
+                    ids: ids
+                })
+                wx.hideLoading();
             }
 
         }).catch(err => {
@@ -25,7 +42,16 @@ Page({
         });
     },
     chooseSong(e) {
-        console.log(e.currentTarget.dataset.item.id);
+        wx.navigateTo({
+            url: `/pages/musicPlay/musicPlay?songId=${e.currentTarget.dataset.item.id}`,
+        });
+        // console.log(e.currentTarget.dataset.item);
+        // console.log(e.currentTarget.dataset.item.id);
+    },
+    toplayAll() {
+        wx.navigateTo({
+            url: `/pages/musicPlay/musicPlay?songId=${this.data.ids[0]}&ids=${JSON.stringify(this.data.ids)}`
+        });
     },
     /**
      * 生命周期函数--监听页面加载

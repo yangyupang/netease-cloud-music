@@ -204,10 +204,8 @@ export default ({
     },
 
 
-    //获取音乐 url 电台也是
-    musicUrl(id) {
-        return fly.get(`/song/url?id=${id}`)
-    },
+
+
     //音乐是否可用
     checkMusic(id) {
         return fly.get(`/check/music?id=${id}`)
@@ -219,7 +217,17 @@ export default ({
     },
     //获取歌曲详情
     getSongdetail(id) {
+        if ((typeof id) === 'array') {
+            id = id.join(',')
+        }
         return fly.get(`/song/detail?ids=${id}`)
+    },
+    //获取音乐 url 电台也是
+    getSongUrl(ids) {
+        if ((typeof ids) === 'array') {
+            ids = ids.join(',')
+        }
+        return fly.get(`/song/url?id=${ids}`)
     },
 
     //获取歌手专辑 

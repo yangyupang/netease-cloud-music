@@ -1,7 +1,8 @@
 {
     "usingComponents": {
         "navCustom": "../../components/navCustom/navCustom",
-        "van-icon": "../../../../lib/vant/icon/index"
+        "van-icon": "../../../../lib/vant/icon/index",
+        "playBoxs": "../../components/common/playBoxs/playBoxs"
     },
     "navigationStyle": "custom"
 }

@@ -1,7 +1,14 @@
 // pages/radio/radio.js
 import api from "../../http/api"
-Page({
-
+import create from '../../utils/store/create'
+import store from '../../store/index'
+create.Page(store, {
+    use: ['playlist'],
+    computed: {
+        length() {
+            return this.playlist.length
+        }
+    },
     /**
      * 页面的初始数据
      */
@@ -18,6 +25,7 @@ Page({
         activeIndex: 0,
         id: '',
         limit: 0,
+        playlistLength: 0
     },
     getDjprogramDetail(id) {
         api.djDetail(id).then(res => {
@@ -52,7 +60,9 @@ Page({
         })
     },
     chooseSong(e) {
-        console.log(e.currentTarget.dataset.item);
+        wx.navigateTo({
+            url: `../../pages/musicPlay/musicPlay?programId=${e.currentTarget.dataset.item.id}`
+        });
     },
     /**
      * 生命周期函数--监听页面加载
@@ -76,7 +86,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        this.setData({
+            playlistLength: this.store.data.playlist.length
+        })
     },
 
     /**
