@@ -22,8 +22,8 @@
 }
 
 .list-icon {
-    height: 40rpx;
-    width: 40rpx;
+    height: 30rpx;
+    width: 30rpx;
     margin: 5rpx;
 }
 
@@ -53,14 +53,14 @@
     width: 600rpx;
 }
 
-.song-name {
+.song-name1 {
     max-width: 400rpx;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.song-singer {
+.song-singer1 {
     max-width: 200rpx;
     font-size: 28rpx;
     white-space: nowrap;

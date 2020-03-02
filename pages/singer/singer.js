@@ -1,7 +1,14 @@
 import api from "../../http/api" // pages/singer/singer.js
 var time = require('../../utils/util.js');
-Page({
-
+import create from '../../utils/store/create'
+import store from '../../store/index'
+create.Page(store, {
+    use: ['playlist'],
+    computed: {
+        length() {
+            return this.playlist.length
+        }
+    },
     /**
      * 页面的初始数据
      */
@@ -88,7 +95,7 @@ Page({
             initial: api.initial
         })
         this.getArtist()
-        
+
     },
 
     /**

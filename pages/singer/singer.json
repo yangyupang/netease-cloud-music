@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "singerList": "../../components/singerPage/singerList/singerList"
+        "singerList": "../../components/singerPage/singerList/singerList",
+        "playBoxs": "../../components/common/playBoxs/playBoxs"
     },
     "navigationBarTitleText": "歌手"
 }

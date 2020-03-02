@@ -41,3 +41,5 @@
 <singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 14}}" bind:newLimit='newLimit'></singerList>
 <!-- 其他组合/乐队 -->
 <singerList singerList="{{artists}}" limit="{{limit}}" id="enter" wx:if="{{showLetter === 15}}" bind:newLimit='newLimit'></singerList>
+ <view wx:if="{{length>0}}" style="height:120rpx"></view>
+<playBoxs wx:if="{{length>0}}"></playBoxs>

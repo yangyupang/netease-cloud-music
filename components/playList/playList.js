@@ -47,7 +47,7 @@ create.Component(store, {
             this.store.data.playType = num
         },
         gotoPlay(e) {
-            wx.navigateTo({
+            wx.redirectTo({
                 url: `/pages/musicPlay/musicPlay?songId=${e.currentTarget.dataset.id}`
             });
         },

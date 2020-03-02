@@ -5,7 +5,7 @@
             <text>({{length}})</text>
         </view>
         <view class="flex j-between list-nav">
-            <view class="type-info flex" catch:tap="typeChange">
+            <view class="type-info flex a-center" catch:tap="typeChange">
                 <image class="list-icon" src="/assets/images/orderPlay.png" wx:if="{{$.playType === 1}}" />
                 <image class="list-icon" src="/assets/images/singleCycle.png" wx:if="{{$.playType === 2}}" />
                 <image class="list-icon" src="/assets/images/randomBroadcast.png" wx:if="{{$.playType === 0}}" />
@@ -21,9 +21,9 @@
                     {{index+1}}
                 </view>
                 <view class="song-info flex">
-                    <view class="song-name">{{item.title}}</view>
-                    <view class="song-singer" style="color:{{$.playIndex===index?'red!important;':'gray'}}">
-                        —{{item.singer}}
+                    <view class="song-name1">{{item.title}}</view>
+                    <view class="song-singer1" style="color:{{$.playIndex===index?'red!important;':'gray'}}">
+                        ——— {{item.singer}}
                     </view>
                 </view>
             </view>
