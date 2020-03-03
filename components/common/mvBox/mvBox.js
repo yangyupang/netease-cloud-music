@@ -25,7 +25,10 @@ Component({
      */
     methods: {
         choose(e) {
-            console.log(e.currentTarget.dataset.item);
+            wx.navigateTo({
+                url: `/pages/videoPlayer/videoPlayer?id=${e.currentTarget.dataset.item.id}`
+            });
+            // console.log(e.currentTarget.dataset.item.id);
         }
     }
 })

@@ -1,0 +1,3 @@
+<view class="video-box">
+    <video style="witdh:100%" id="myVideo" src="{{src}}" binderror="videoErrorCallback"  enable-play-gesture="{{true}}" show-mute-btn="{{true}}" autoplay controls></video>
+</view>

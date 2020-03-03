@@ -30,6 +30,7 @@
 
 .singer-img {
     height: 460rpx;
+    width: 100%;
 }
 
 .bg {

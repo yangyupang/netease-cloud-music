@@ -274,6 +274,21 @@ export default ({
 
 
 
+    // ? 视频播放器
+    /**
+     * mv
+     * id mvid
+     */
+    getMvInfo(id) {
+        return fly.get(`/mv/url?id=${id}`)
+    },
+    /**
+     * 视频
+     *  id 视频vid
+     */
+    getVideoInfo(id) {
+        return fly.get(`/video/url?id=${id}`)
+    },
     // 登录页
     // 登录页有两个接口，一个手机号，一个邮箱登录
     // 手机号登录(需传入两个参数，phone: 手机号码 password: 密码)

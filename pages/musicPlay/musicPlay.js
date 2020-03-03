@@ -10,8 +10,6 @@ create.Page(store, {
      */
     data: {
         id: '',
-        // url: '',
-        play: 1,
         isPlay: true,
         show: false,
         playlist: [],
@@ -228,7 +226,7 @@ create.Page(store, {
         this.onTimeUpdate(bgm)
     },
     playChange() {
-        let num = this.data.play
+        let num = this.store.data.playType
         num === 2 ? num = 0 : num++
             wx.showToast({
                 title: `${num===1?'列表循环':num===2?'单曲循环':'随机循环'}`,
@@ -236,9 +234,6 @@ create.Page(store, {
                 duration: 1500
             });
         this.store.data.playType = num
-        this.setData({
-            play: num
-        })
     },
     //监听播放状态
     onTimeUpdate(bgm) {

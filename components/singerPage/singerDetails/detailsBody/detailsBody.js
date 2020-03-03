@@ -1,5 +1,12 @@
-// components/singerPage/singerDetails/detailsBody/detailsBody.js
-Component({
+import create from '../../../../utils/store/create'
+import store from '../../../../store/index'
+create.Component(store, {
+    use: ['playlist'],
+    computed: {
+        length() {
+            return this.playlist.length
+        }
+    },
     /**
      * 组件的属性列表
      */
@@ -79,13 +86,22 @@ Component({
 
         },
         chooseSong(e) {
-            console.log(e.currentTarget.dataset.item);
+            wx.navigateTo({
+                url: `/pages/musicPlay/musicPlay?songId=${e.currentTarget.dataset.item.id}`
+            });
+            // console.log(e.currentTarget.dataset.item);
         },
         chooseAlbums(e) {
-            console.log(e.currentTarget.dataset.item);
+            wx.navigateTo({
+                url: `/pages/newDisc/newDisc?id=${e.currentTarget.dataset.item.id}`,
+            });
+            // console.log(e.currentTarget.dataset.item);
         },
         chooseMv(e) {
-            console.log(e.currentTarget.dataset.item);
+            wx.navigateTo({
+                url: `/pages/videoPlayer/videoPlayer?id=${e.currentTarget.dataset.item.id}`
+            });
+            // console.log(e.currentTarget.dataset.item);
         },
         showAll() {
             this.setData({

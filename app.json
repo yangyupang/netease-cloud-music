@@ -12,7 +12,8 @@
         "pages/newDisc/newDisc",
         "pages/radio/radio",
         "pages/program/program",
-        "pages/musicPlay/musicPlay"
+        "pages/musicPlay/musicPlay",
+        "pages/videoPlayer/videoPlayer"
     ],
     "window": {
         "backgroundTextStyle": "light",

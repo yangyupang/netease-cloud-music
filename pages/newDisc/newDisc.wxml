@@ -35,37 +35,41 @@
             <view>多选</view>
         </view>
     </view>
-    <view class="song-box">
-        <view class="flex j-between a-center">
-            <view class="flex a-center" bind:tap="toplayAll">
-                <image class="round-play" src="/assets/images/round-play.png" />
-                <view class="flex a-center">
-                    <view>播放全部</view>
-                    <view style="font-size: 32rpx;color:rgb(192, 192, 187)">
-                        (共{{songs.length}}首)
+    <view class="song-box p-fixed">
+        <view style="padding: 30rpx 30rpx 0;">
+            <view class="flex j-between a-center">
+                <view class="flex a-center" bind:tap="toplayAll">
+                    <image class="round-play" src="/assets/images/round-play.png" />
+                    <view class="flex a-center">
+                        <view>播放全部</view>
+                        <view style="font-size: 32rpx;color:rgb(192, 192, 187)">
+                            (共{{songs.length}}首)
+                        </view>
                     </view>
                 </view>
+                <view class="collection flex a-center" style="color: #fff;font-size: 32rpx;padding: 20rpx 10rpx;background: red;border-radius: 50rpx">
+                    <van-icon name="plus" />
+                    <view wx:if='{{albumList.info.commentCount>0}}'>
+                        收藏({{albumList.info.commentCount}})
+                    </view>
+                    <view wx:else>暂无收藏</view>
+                </view>
             </view>
-            <view class="collection flex a-center" style="color: #fff;font-size: 32rpx;padding: 20rpx 10rpx;background: red;border-radius: 50rpx">
-                <van-icon name="plus" />
-                <view wx:if='{{albumList.info.commentCount>0}}'>收藏({{albumList.info.commentCount}})</view>
-                <view wx:else>暂无收藏</view>
-            </view>
+            <scroll-view scroll-y="true" class="song-scr">
+                <view class="flex j-between a-center" style="margin-bottom: 30rpx;" wx:for="{{songs}}" wx:key="index" data-item="{{item}}" bind:tap="chooseSong">
+                    <view style="color:rgb(209, 208, 208);font-weight:600">{{index+1}}</view>
+                    <view class="" style="width: 64%;">
+                        <view class="song-name o-h">{{item.name}}</view>
+                        <view class="song-describe o-h">{{item.ar[0].name}}</view>
+                    </view>
+                    <view class="flex">
+                        <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/square-paly.png" />
+                        <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/point.png" />
+                    </view>
+                </view>
+                <view wx:if="{{length>0}}" style="height:120rpx"></view>
+            </scroll-view>
         </view>
-        <scroll-view scroll-y="true" class="song-scr">
-            <view class="flex j-between a-center" style="margin-bottom: 30rpx;" wx:for="{{songs}}" wx:key="index" data-item="{{item}}" bind:tap="chooseSong">
-                <view style="color:rgb(209, 208, 208);font-weight:600">{{index+1}}</view>
-                <view class="" style="width: 64%;">
-                    <view class="song-name o-h">{{item.name}}</view>
-                    <view class="song-describe o-h">{{item.ar[0].name}}</view>
-                </view>
-                <view class="flex">
-                    <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/square-paly.png" />
-                    <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/point.png" />
-                </view>
-            </view>
-            <view wx:if="{{length>0}}" style="height:120rpx"></view>
-        </scroll-view>
     </view>
 </view>
 <playBoxs wx:if="{{length>0}}"></playBoxs>

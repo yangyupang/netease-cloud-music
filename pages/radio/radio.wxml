@@ -1,7 +1,7 @@
 <wxs module="filter" src="../../assets/filter.wxs"></wxs>
-<view >
+<view>
     <image class="" src="{{djRadio.picUrl}}" style="width: 100%;" />
-    <view class="flex j-between a-center p-relative" style="padding:0 30rpx;top:-166rpx;">
+    <view class="flex j-between a-center p-absolute" style="padding: 0 30rpx;top: 394rpx;left: 0;right: 0;">
         <view style="color:#fff;width: 60%;">
             <view class="program-name o-h">{{djRadio.name}}</view>
             <view class="program-likedCount">{{filter.numberVonversion(djRadio.subCount)}}人订阅</view>
@@ -12,100 +12,101 @@
         </view>
     </view>
     <view class="p-fixed container">
-        <view class="flex j-between" style="font-size: 36rpx;border-bottom: 2rpx solid rgb(236, 238, 240);">
-            <view class="t-center p-relative" style="width:50%;padding:30rpx 0" data-index="{{0}}" bind:tap="choose">
-                <view class="{{activeIndex===0?'font-col':''}}">详情</view>
-                <view class="p-absolute {{activeIndex===0?'line-sty':''}}"></view>
+        <view style="padding: 0 30rpx;">
+            <view class="flex j-between" style="font-size: 36rpx;border-bottom: 2rpx solid rgb(236, 238, 240);">
+                <view class="t-center p-relative" style="width:50%;padding:30rpx 0" data-index="{{0}}" bind:tap="choose">
+                    <view class="{{activeIndex===0?'font-col':''}}">详情</view>
+                    <view class="p-absolute {{activeIndex===0?'line-sty':''}}"></view>
+                </view>
+                <view class="t-center p-relative" style="width:50%;padding:30rpx 0" data-index="{{1}}" bind:tap="choose">
+                    <view class="flex a-center j-center">
+                        <view class="{{activeIndex===1?'font-col':''}}">节目</view>
+                        <view class="program-num {{activeIndex===1?'font-col':''}}">
+                            {{djRadio.programCount}}
+                        </view>
+                    </view>
+                    <view class="p-absolute {{activeIndex===1?'line-sty':''}}"></view>
+                </view>
             </view>
-            <view class="t-center p-relative" style="width:50%;padding:30rpx 0" data-index="{{1}}" bind:tap="choose">
-                <view class="flex a-center j-center">
-                    <view class="{{activeIndex===1?'font-col':''}}">节目</view>
-                    <view class="program-num {{activeIndex===1?'font-col':''}}">
-                        {{djRadio.programCount}}
+            <scroll-view scroll-y="true" wx:if="{{activeIndex===0}}" style="padding-top: 30rpx; height: 500rpx;">
+                <view>
+                    <view class="host">主播</view>
+                    <view class="flex j-between a-center">
+                        <image class="host-img" src="{{dj.avatarUrl}}" />
+                        <view>
+                            <view class="host-name">{{dj.nickname}}</view>
+                            <view class="o-h host-signature">{{dj.signature}}</view>
+                        </view>
+                        <view class="appreciates t-center">赞赏</view>
                     </view>
                 </view>
-                <view class="p-absolute {{activeIndex===1?'line-sty':''}}"></view>
-            </view>
-        </view>
-        <scroll-view scroll-y="true" wx:if="{{activeIndex===0}}" style="padding-top: 30rpx;height: 536rpx;">
-            <view>
-                <view class="host">主播</view>
-                <view class="flex j-between a-center">
-                    <image class="host-img" src="{{dj.avatarUrl}}" />
-                    <view>
-                        <view class="host-name">{{dj.nickname}}</view>
-                        <view class="o-h host-signature">{{dj.signature}}</view>
+                <view style="margin-top:40rpx">
+                    <view class="abstract" style="margin-top:20rpx">电台内容简介</view>
+                    <view class="flex a-center" style="font-size:30rpx;color:rgb(209, 206, 206);margin-top:10rpx">
+                        <view>分类:</view>
+                        <view class="radio-category">{{djRadio.category}}</view>
                     </view>
-                    <view class="appreciates t-center">赞赏</view>
+                    <view style="font-size:30rpx;color:rgb(209, 206, 206);margin-top:10rpx">
+                        {{djRadio.desc}}
+                    </view>
                 </view>
-            </view>
-            <view style="margin-top:40rpx">
-                <view class="abstract" style="margin-top:20rpx">电台内容简介</view>
-                <view class="flex a-center" style="font-size:30rpx;color:rgb(209, 206, 206);margin-top:10rpx">
-                    <view>分类:</view>
-                    <view class="radio-category">{{djRadio.category}}</view>
-                </view>
-                <view style="font-size:30rpx;color:rgb(209, 206, 206);margin-top:10rpx">
-                    {{djRadio.desc}}
-                </view>
-            </view>
-            <view style="margin-top:40rpx" wx:if="{{comments.length>0}}">
-                <view class="comments" style="margin-top:20rpx">精彩评论</view>
-                <view class="flex j-between comments-box" wx:for="{{comments}}" wx:key="index">
-                    <image class="user-img" src="{{item.userProfile.avatarUrl}}" />
-                    <view style="width:84%;border-bottom: 2rpx solid rgb(209, 206, 206);">
-                        <view class="user-nickname">{{item.userProfile.nickname}}</view>
-                        <view class="user-content">{{item.content}}</view>
-                        <view class="program-name2 flex a-center">
-                            <view class="hor-line"></view>
-                            {{item.programName}}
+                <view style="margin-top:40rpx" wx:if="{{comments.length>0}}">
+                    <view class="comments" style="margin-top:20rpx">精彩评论</view>
+                    <view class="flex j-between comments-box" wx:for="{{comments}}" wx:key="index">
+                        <image class="user-img" src="{{item.userProfile.avatarUrl}}" />
+                        <view style="width:84%;border-bottom: 2rpx solid rgb(209, 206, 206);">
+                            <view class="user-nickname">{{item.userProfile.nickname}}</view>
+                            <view class="user-content">{{item.content}}</view>
+                            <view class="program-name2 flex a-center">
+                                <view class="hor-line"></view>
+                                {{item.programName}}
+                            </view>
                         </view>
                     </view>
                 </view>
-            </view>
-            <view style="margin-top:40rpx" wx:else>
-                <view class="comments" style="margin-top:20rpx">暂无评论</view>
-            </view>
-             <view wx:if="{{length>0}}" style="height:120rpx"></view>
-        </scroll-view>
-        <scroll-view scroll-y="true" wx:if="{{activeIndex===1}}" style="padding-top: 30rpx;height: 536rpx;">
-            <view class="flex j-between a-center" style="margin-bottom: 40rpx;">
-                <view class="length">共{{songs.length}}期</view>
-                <view class="flex a-center">
-                    <view class="flex a-center" style="margin-right: 20rpx;">
-                        <image class="img-size" src="/assets/images/down.png" />
-                        <view class="font-siz">排序</view>
-                    </view>
+                <view style="margin-top:40rpx" wx:else>
+                    <view class="comments" style="margin-top:20rpx">暂无评论</view>
+                </view>
+                <view wx:if="{{length>0}}" style="height:120rpx"></view>
+            </scroll-view>
+            <scroll-view scroll-y="true" wx:if="{{activeIndex===1}}" style="padding-top: 30rpx;height: 500rpx;">
+                <view class="flex j-between a-center" style="margin-bottom: 40rpx;">
+                    <view class="length">共{{songs.length}}期</view>
                     <view class="flex a-center">
-                        <image class="img-size" src="/assets/images/management.png" />
-                        <view class="font-siz">多选</view>
-                    </view>
-                </view>
-            </view>
-            <view class="flex j-between a-center" style="margin-bottom: 30rpx;" wx:for="{{songs}}" wx:key="index" data-item="{{item}}" bind:tap="chooseSong">
-                <view style="color:rgb(209, 208, 208);font-weight:600">
-                    {{songs.length - index}}
-                </view>
-                <view class="" style="width: 64%;">
-                    <view class="song-name o-h">{{item.name}}</view>
-                    <view class="song-describe o-h flex">
-                        <view wx:if="{{item.createTime>0}}">
-                            {{filter.formatTime(item.createTime,'Y-M-D')}}
+                        <view class="flex a-center" style="margin-right: 20rpx;">
+                            <image class="img-size" src="/assets/images/down.png" />
+                            <view class="font-siz">排序</view>
                         </view>
-                        <view wx:else>暂无发布时间</view>
-                        <view class="flex a-center" style="margin-left:20rpx">
-                            <van-icon name="clock-o" size="30rpx" />
-                            <view>{{filter.formatTime(item.duration,'m:s')}}</view>
+                        <view class="flex a-center">
+                            <image class="img-size" src="/assets/images/management.png" />
+                            <view class="font-siz">多选</view>
                         </view>
                     </view>
                 </view>
-                <view class="flex">
-                    <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/point.png" />
+                <view class="flex j-between a-center" style="margin-bottom: 30rpx;" wx:for="{{songs}}" wx:key="index" data-item="{{item}}" bind:tap="chooseSong">
+                    <view style="color:rgb(209, 208, 208);font-weight:600">
+                        {{songs.length - index}}
+                    </view>
+                    <view class="" style="width: 64%;">
+                        <view class="song-name o-h">{{item.name}}</view>
+                        <view class="song-describe o-h flex">
+                            <view wx:if="{{item.createTime>0}}">
+                                {{filter.formatTime(item.createTime,'Y-M-D')}}
+                            </view>
+                            <view wx:else>暂无发布时间</view>
+                            <view class="flex a-center" style="margin-left:20rpx">
+                                <van-icon name="clock-o" size="30rpx" />
+                                <view>{{filter.formatTime(item.duration,'m:s')}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="flex">
+                        <image class="" style="width: 50rpx;height: 50rpx;" src="/assets/images/point.png" />
+                    </view>
                 </view>
-            </view>
-             <view wx:if="{{length>0}}" style="height:120rpx"></view>
-        </scroll-view>
+                <view wx:if="{{length>0}}" style="height:120rpx"></view>
+            </scroll-view>
+        </view>
     </view>
-   
 </view>
 <playBoxs wx:if="{{length>0}}"></playBoxs>

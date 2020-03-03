@@ -48,9 +48,10 @@
 }
 
 .song-box {
-    padding: 30rpx 30rpx 0;
     background-color: #fff;
     border-radius: 20rpx 20rpx 0 0;
+    bottom: 0;
+    width: 100%;
 }
 
 .round-play {

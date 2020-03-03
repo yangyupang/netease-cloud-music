@@ -24,9 +24,9 @@
     </view>
     <view class="flex j-around padding-sty a-center">
         <view bind:tap="playChange">
-            <image class="img-size" src="/assets/images/orderPlay.png" wx:if="{{play === 1}}" />
-            <image class="img-size" src="/assets/images/singleCycle.png" wx:if="{{play === 2}}" />
-            <image class="img-size" src="/assets/images/randomBroadcast.png" wx:if="{{play === 0}}" />
+            <image class="img-size" src="/assets/images/orderPlay.png" wx:if="{{$.playType === 1}}" />
+            <image class="img-size" src="/assets/images/singleCycle.png" wx:if="{{$.playType === 2}}" />
+            <image class="img-size" src="/assets/images/randomBroadcast.png" wx:if="{{$.playType === 0}}" />
         </view>
         <image class="img-size" bind:tap="playPrev" src="/assets/images/prev-song.png" />
         <view bind:tap="isPlay">

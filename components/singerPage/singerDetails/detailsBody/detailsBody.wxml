@@ -50,6 +50,7 @@
             <view class="">昵称：{{singerName}}</view>
             <view class="h-font">简介：{{briefDesc}}</view>
         </view>
+        <view wx:if="{{length>0}}" style="height:120rpx"></view>
     </view>
     <view wx:if="{{activeIndex===1}}" style="padding:20rpx 40rpx">
         <view class="flex j-between a-center" style="margin-bottom: 20rpx;">
@@ -92,6 +93,7 @@
             全部歌曲
             <van-icon name="arrow" />
         </view>
+        <view wx:if="{{length>0}}" style="height:120rpx"></view>
     </view>
     <view wx:if="{{activeIndex===2}}" style="padding:20rpx 40rpx">
         <view class="flex j-between a-center" style="margin-bottom: 20rpx;">
@@ -123,6 +125,7 @@
                 </view>
             </view>
         </view>
+        <view wx:if="{{length>0}}" style="height:120rpx"></view>
     </view>
     <view wx:if="{{activeIndex===3}}" style="padding:20rpx 40rpx">
         <view class="flex j-between a-center" style="margin-bottom: 20rpx;">
@@ -149,5 +152,7 @@
                 <view class="mv-describe o-h">{{item.publishTime}}</view>
             </view>
         </view>
+        <view wx:if="{{length>0}}" style="height:120rpx"></view>
     </view>
+    <playBoxs wx:if="{{length>0}}"></playBoxs>
 </view>

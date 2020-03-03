@@ -1,6 +1,7 @@
 {
     "component": true,
     "usingComponents": {
-        "van-icon": "../../../../lib/vant/icon/index"
+        "van-icon": "../../../../lib/vant/icon/index",
+        "playBoxs": "../../../common/playBoxs/playBoxs"
     }
 }

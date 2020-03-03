@@ -24,7 +24,9 @@ Component({
      */
     methods: {
         choose(e) {
-            console.log(e.currentTarget.dataset.item);
+            wx.navigateTo({
+                url: `/pages/videoPlayer/videoPlayer?vid=${e.currentTarget.dataset.item.vid}`
+            });
         }
     }
 })
